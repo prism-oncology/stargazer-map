@@ -32,23 +32,30 @@
   function radius(n){ return 5 + 4*Math.sqrt(n); }
 
   // Only nearly-coincident bubbles merge: same country, and one centre inside the
-  // other circle at the current zoom (zooming in splits them again). Neighbouring
-  // cities and different countries always keep their own bubble. Greedy, biggest
-  // places first, so a merged bubble sits near its largest member.
+  // other circle at the current zoom (zooming in splits them again). Different
+  // countries always keep their own bubble. Each place starts as its own group;
+  // merging repeats until no same-country pair overlaps that much, because a
+  // merged bubble grows and moves and can then cover a neighbour.
   function country(p){ return p.country || p.label.split(', ').pop(); }  // older data: no code
   function cluster(){
-    var groups = [];
-    data.places.slice().sort(function(a,b){ return b.count - a.count; }).forEach(function(p){
-      var pt = map.latLngToLayerPoint([p.lat,p.lon]);
-      var g = groups.find(function(g){
-        return g.country === country(p) && g.pt.distanceTo(pt) < Math.max(radius(g.count), radius(p.count));
-      });
-      if (!g) { groups.push({pt:pt, count:p.count, country:country(p), members:[p]}); return; }
-      var w = p.count / (g.count + p.count);  // centre moves toward the members' weighted mean
-      g.pt = L.point(g.pt.x + (pt.x - g.pt.x)*w, g.pt.y + (pt.y - g.pt.y)*w);
-      g.count += p.count;
-      g.members.push(p);
+    var groups = data.places.slice().sort(function(a,b){ return b.count - a.count; }).map(function(p){
+      return {pt:map.latLngToLayerPoint([p.lat,p.lon]), count:p.count, country:country(p), members:[p]};
     });
+    function overlapping(){
+      for (var i = 0; i < groups.length; i++) for (var j = i + 1; j < groups.length; j++) {
+        var a = groups[i], b = groups[j];
+        if (a.country === b.country && a.pt.distanceTo(b.pt) < Math.max(radius(a.count), radius(b.count)))
+          return [i, j];
+      }
+    }
+    var pair;
+    while ((pair = overlapping())) {
+      var a = groups[pair[0]], b = groups.splice(pair[1], 1)[0];
+      var w = b.count / (a.count + b.count);  // centre: the stargazer-weighted mean
+      a.pt = L.point(a.pt.x + (b.pt.x - a.pt.x)*w, a.pt.y + (b.pt.y - a.pt.y)*w);
+      a.count += b.count;
+      a.members = a.members.concat(b.members).sort(function(x,y){ return y.count - x.count; });
+    }
     return groups;
   }
 
