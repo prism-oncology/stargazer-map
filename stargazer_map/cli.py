@@ -1,7 +1,7 @@
 """Command line: `stargazer-map fetch` then `stargazer-map build`.
 
 Options default to environment variables (ORG, INCLUDE_FORKS, INCLUDE_ARCHIVED,
-INCLUDE_LOGINS, MAX_GEOCODE, MAP_LAYERS, MIN_STARS) so the GitHub workflow can
+INCLUDE_LOGINS, MAX_GEOCODE, MAP_LAYERS, MIN_STARS, LOGO) so the GitHub workflow can
 configure them in `env:`.
 """
 
@@ -74,6 +74,11 @@ def parser() -> argparse.ArgumentParser:
         default=int(os.environ.get("MIN_STARS") or 0),
         help="only list repos with at least this many stars (default: 0, all repos)",
     )
+    b.add_argument(
+        "--logo",
+        default=os.environ.get("LOGO") or None,
+        help="image (svg/png/jpg/webp) shown at the top of every page (default: none)",
+    )
     return p
 
 
@@ -82,7 +87,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "build":
         layers = [x.strip() for x in args.layers.split(",") if x.strip()]
         try:
-            build(args.data, args.site, layers, args.min_stars)
+            build(args.data, args.site, layers, args.min_stars, args.logo)
         except ValueError as exc:
             print(exc, file=sys.stderr)
             return 2

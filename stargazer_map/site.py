@@ -17,6 +17,7 @@ from pathlib import Path
 
 LEAFLET = "https://unpkg.com/leaflet@1.9.4/dist"
 ASSETS = ("style.css", "theme.js", "map.js", "countries.geojson")
+LOGO_TYPES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
 # Map layers a viewer can toggle: countries coloured by stargazer count, and one
 # bubble per place sized by count.
 LAYERS = ("countries", "bubbles")
@@ -44,6 +45,7 @@ def page(
     map_data: dict | None,
     repository: str,
     generated: str,
+    logo: str = "",
 ) -> str:
     map_block = ""
     if map_data is not None:
@@ -61,7 +63,7 @@ def page(
 <link rel="stylesheet" href="assets/style.css">
 {THEME_INIT}</head>
 <body>
-<header><button id="theme-toggle" class="theme-toggle" type="button"></button>
+<header><button id="theme-toggle" class="theme-toggle" type="button"></button>{logo}
 <div class="crumb">{crumb}</div><h1>{heading}</h1><p class="sub">{sub}</p></header>
 <main>{body}</main>
 <footer>Updated {esc(generated[:16].replace("T", " "))} UTC ·
@@ -141,12 +143,14 @@ def build(
     site_dir: Path | str = "site",
     layers: Iterable[str] = LAYERS,
     min_stars: int = 0,
+    logo: Path | str | None = None,
 ) -> Path:
     """Regenerate `site_dir` from scratch and return its path.
 
     `layers` are the map layers shown when a page opens (any of LAYERS); viewers can
     toggle each one on the map. Repos with fewer than `min_stars` stars get no page
-    or card; their stargazers still count on the overview map.
+    or card; their stargazers still count on the overview map. `logo` is an image
+    file shown at the top of every page.
     """
     data_dir, site_dir = Path(data_dir), Path(site_dir)
     layers = list(dict.fromkeys(layers))
@@ -156,6 +160,10 @@ def build(
     org, generated = summary["org"], summary["generated_at"]
     repos = [r for r in summary["repos"] if (r.get("star_count") or 0) >= min_stars]
     repository = summary.get("repository") or org
+    if logo:
+        logo = Path(logo)
+        if logo.suffix.lower() not in LOGO_TYPES or not logo.is_file():
+            raise ValueError(f"logo must be an existing {'/'.join(LOGO_TYPES)} file, got {logo}")
 
     if site_dir.exists():
         shutil.rmtree(site_dir)
@@ -167,6 +175,11 @@ def build(
     for f in (data_dir / "stats").glob("*.json"):
         shutil.copy(f, site_dir / "data" / f.name)
     shutil.copy(data_dir / "summary.json", site_dir / "data" / "summary.json")
+    logo_html = ""
+    if logo:
+        name = f"logo{logo.suffix.lower()}"
+        shutil.copy(logo, site_dir / "assets" / name)
+        logo_html = f'<img class="logo" src="assets/{name}" alt="{esc(org)}">'
 
     # Per-repo pages
     for r in repos:
@@ -186,6 +199,7 @@ def build(
                 map_data(stats, layers),
                 repository,
                 generated,
+                logo_html,
             ),
             encoding="utf-8",
         )
@@ -219,6 +233,7 @@ def build(
             map_data(overall, layers),
             repository,
             generated,
+            logo_html,
         ),
         encoding="utf-8",
     )

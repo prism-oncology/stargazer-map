@@ -96,3 +96,18 @@ def test_build_min_stars(tmp_path):
     # The overview map still counts the hidden repo's stargazers.
     assert embedded_map_data(index)["countries"] == {"FR": 1}
     assert (build(data, tmp_path / "site", min_stars=2) / "tool.html").exists()
+
+
+def test_build_logo(tmp_path):
+    data = make_data(tmp_path)
+    logo = tmp_path / "Brand.PNG"
+    logo.write_bytes(b"\x89PNG fake")
+    site = build(data, tmp_path / "site", logo=logo)
+    assert (site / "assets" / "logo.png").read_bytes() == b"\x89PNG fake"
+    for page in ("index.html", "tool.html"):
+        html = (site / page).read_text(encoding="utf-8")
+        assert '<img class="logo" src="assets/logo.png" alt="me">' in html
+    assert 'class="logo"' not in (build(data, tmp_path / "site") / "index.html").read_text()
+    for bad in (tmp_path / "missing.png", data / "summary.json"):
+        with pytest.raises(ValueError):
+            build(data, tmp_path / "site", logo=bad)

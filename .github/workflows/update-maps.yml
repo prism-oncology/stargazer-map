@@ -76,6 +76,8 @@ jobs:
           # Repos with fewer stars get no page or card (their stargazers still count on
           # the overview map). prism-oncology lists only repos with 10+ stars.
           MIN_STARS: ${{ github.repository_owner == 'prism-oncology' && '10' || '0' }}
+          # Logo at the top of every page (an image file in this repo), prism-oncology only.
+          LOGO: ${{ github.repository_owner == 'prism-oncology' && 'branding/prism-oncology.jpeg' || '' }}
         run: stargazer-map build
 
       - uses: actions/configure-pages@v5
