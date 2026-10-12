@@ -65,6 +65,9 @@ def test_build(tmp_path):
     # 1 of 2 stargazers has a location on the map.
     assert "<b>1</b><span>stargazers located (50%)</span>" in index
     assert 'id="theme-toggle"' in index and "stargazer-map:theme" in index
+    # Bars carry their value for map.js to colour (countries: map blue, places: orange).
+    assert '<table data-scale="countries">' in index and '<table data-scale="places">' in index
+    assert '<i data-n="1" style="width:100%">' in index
     # A place label must not be able to close the embedded JSON script.
     tool = (site / "tool.html").read_text(encoding="utf-8")
     assert "Evil <\\/script>" in tool

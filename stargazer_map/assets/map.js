@@ -147,11 +147,27 @@
     try { localStorage.setItem(KEY, JSON.stringify(now)); } catch(e) {}
   });
 
+  // ---- Bars in "Top countries" / "Top places": coloured by value, no key ----
+  // Countries use the map's own colour for that count; places a one-hue orange
+  // ramp (the bubbles' hue), same log scale and same dark-mode flip.
+  var ORANGE = ['#fed7aa','#fdba74','#fb923c','#f97316','#ea580c','#c2410c','#9a3412','#7c2d12'];
+  var placeMax = Math.max.apply(null, [1].concat(data.places.map(function(p){ return p.count; })));
+  function paintBars(){
+    document.querySelectorAll('table[data-scale] td.bar i[data-n]').forEach(function(bar){
+      var n = +bar.dataset.n;
+      if (bar.closest('table').dataset.scale === 'countries') { bar.style.background = colour(n); return; }
+      var t = placeMax > 1 ? Math.log(n)/Math.log(placeMax) : 1;
+      bar.style.background = sample(0.15 + 0.85*t, dark ? ORANGE.slice().reverse() : ORANGE);
+    });
+  }
+  paintBars();
+
   // ---- Repaint everything colour-dependent when the theme flips ------------
   window.addEventListener('themechange', function(){
     readTheme();
     setTiles();
     drawBubbles();
+    paintBars();
     countries.setStyle(countries.options.style);
     if (map.hasLayer(countries)) { legend.remove(); legend.addTo(map); }
   });
@@ -160,9 +176,9 @@
   else if (bounds.length === 1) map.setView(bounds[0],4);
   drawBubbles();
 
-  // Linear interpolation along the current ramp, t in [0, 1].
-  function sample(t){
-    var RAMP = ramp();
+  // Linear interpolation along a ramp (default: the countries' blue), t in [0, 1].
+  function sample(t, stops){
+    var RAMP = stops || ramp();
     var x = Math.max(0, Math.min(1, t)) * (RAMP.length - 1);
     var i = Math.min(Math.floor(x), RAMP.length - 2), f = x - i;
     var a = hex(RAMP[i]), b = hex(RAMP[i+1]);

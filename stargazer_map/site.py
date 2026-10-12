@@ -96,22 +96,25 @@ def kpis(stats: dict, star_count=None) -> str:
     )
 
 
-def ranking_table(rows: list[dict], label_key: str, limit: int = 15) -> str:
+def ranking_table(rows: list[dict], label_key: str, scale: str, limit: int = 15) -> str:
+    """Top-N table with bars. map.js colours each bar from `data-n` on the `scale`
+    ramp ("countries": the map's blue, "places": the bubbles' orange)."""
     if not rows:
         return '<p class="sub">No located stargazers yet.</p>'
     top = rows[:limit]
     peak = max(r["count"] for r in top)
     trs = "".join(
         f'<tr><td>{esc(r[label_key])}</td><td class="n">{r["count"]}</td>'
-        f'<td class="bar"><i style="width:{max(4, 100 * r["count"] / peak):.0f}%"></i></td></tr>'
+        f'<td class="bar"><i data-n="{r["count"]}" '
+        f'style="width:{max(4, 100 * r["count"] / peak):.0f}%"></i></td></tr>'
         for r in top
     )
-    return f"<table>{trs}</table>"
+    return f'<table data-scale="{scale}">{trs}</table>'
 
 
 def map_and_rankings(stats: dict) -> str:
-    countries = ranking_table(stats.get("countries") or [], "name")
-    places = ranking_table(stats.get("places") or [], "label")
+    countries = ranking_table(stats.get("countries") or [], "name", "countries")
+    places = ranking_table(stats.get("places") or [], "label", "places")
     return (
         '<div id="map"></div><div class="cols">'
         f"<section><h2>Top countries</h2>{countries}</section>"
