@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "stargazer-map"
-version = "0.1.0"
+version = "0.2.0"
 description = "Weekly maps of where the stargazers of a GitHub user's or organisation's repositories are"
 readme = "README.md"
 license = "MIT"
