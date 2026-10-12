@@ -164,7 +164,13 @@ def test_aggregate_merges_places_with_the_same_label():
     cache = {"san francisco": sf, "sf": sf, "bay area": bay_area}
     stats = aggregate({"a": "san francisco", "b": "sf", "c": "bay area"}, cache)
     assert stats["places"] == [
-        {"lat": 37.788, "lon": -122.408, "label": "San Francisco, United States", "count": 3}
+        {
+            "lat": 37.788,
+            "lon": -122.408,
+            "label": "San Francisco, United States",
+            "country": "US",
+            "count": 3,
+        }  # fmt: skip
     ]
 
 

@@ -28,18 +28,55 @@
 
   // ---- Bubbles: one per place, area ~ count -------------------------------
   var bubbles = L.layerGroup();
-  var bounds = [];
-  data.places.forEach(function(p){
-    var r = 5 + 4*Math.sqrt(p.count);
-    var m = L.circleMarker([p.lat,p.lon],{radius:r,color:accent,weight:1.5,
-      fillColor:accent,fillOpacity:.45}).addTo(bubbles);
-    var txt = '<b>'+escapeHtml(p.label)+'</b><br>'+plural(p.count);
-    if (p.logins) txt += '<br>' + p.logins.map(function(l){
-      return '<a href="https://github.com/'+encodeURIComponent(l)+'" target="_blank" rel="noopener">@'+escapeHtml(l)+'</a>';
-    }).join(', ');
-    m.bindPopup(txt);
-    bounds.push([p.lat,p.lon]);
-  });
+  var bounds = data.places.map(function(p){ return [p.lat,p.lon]; });
+  function radius(n){ return 5 + 4*Math.sqrt(n); }
+
+  // Only nearly-coincident bubbles merge: same country, and one centre inside the
+  // other circle at the current zoom (zooming in splits them again). Neighbouring
+  // cities and different countries always keep their own bubble. Greedy, biggest
+  // places first, so a merged bubble sits near its largest member.
+  function country(p){ return p.country || p.label.split(', ').pop(); }  // older data: no code
+  function cluster(){
+    var groups = [];
+    data.places.slice().sort(function(a,b){ return b.count - a.count; }).forEach(function(p){
+      var pt = map.latLngToLayerPoint([p.lat,p.lon]);
+      var g = groups.find(function(g){
+        return g.country === country(p) && g.pt.distanceTo(pt) < Math.max(radius(g.count), radius(p.count));
+      });
+      if (!g) { groups.push({pt:pt, count:p.count, country:country(p), members:[p]}); return; }
+      var w = p.count / (g.count + p.count);  // centre moves toward the members' weighted mean
+      g.pt = L.point(g.pt.x + (pt.x - g.pt.x)*w, g.pt.y + (pt.y - g.pt.y)*w);
+      g.count += p.count;
+      g.members.push(p);
+    });
+    return groups;
+  }
+
+  function drawBubbles(){
+    bubbles.clearLayers();
+    cluster().forEach(function(g){
+      var m = L.circleMarker(map.layerPointToLatLng(g.pt),{radius:radius(g.count),color:accent,
+        weight:1.5,fillColor:accent,fillOpacity:.45}).addTo(bubbles);
+      if (g.members.length === 1) {
+        var p = g.members[0];
+        var txt = '<b>'+escapeHtml(p.label)+'</b><br>'+plural(p.count);
+        if (p.logins) txt += '<br>' + p.logins.map(function(l){
+          return '<a href="https://github.com/'+encodeURIComponent(l)+'" target="_blank" rel="noopener">@'+escapeHtml(l)+'</a>';
+        }).join(', ');
+        m.bindPopup(txt);
+        return;
+      }
+      // A merged bubble: hover names its biggest places, click zooms in to split it.
+      var names = g.members.slice(0,3).map(function(p){ return escapeHtml(p.label.split(', ')[0]); });
+      var more = g.members.length - names.length;
+      m.bindTooltip('<b>'+names.join(', ')+(more ? ' and '+more+' more' : '')+'</b><br>'
+        + plural(g.count) + ' &middot; click to zoom in');
+      m.on('click', function(){
+        map.fitBounds(g.members.map(function(p){ return [p.lat,p.lon]; }),{padding:[40,40]});
+      });
+    });
+  }
+  map.on('zoomend', drawBubbles);
 
   // ---- Countries: one-hue sequential ramp, log scale ----------------------
   // Blue 100 -> 700. Light mode: few = light, many = dark. Dark mode flips the
@@ -107,13 +144,14 @@
   window.addEventListener('themechange', function(){
     readTheme();
     setTiles();
-    bubbles.eachLayer(function(m){ m.setStyle({color:accent,fillColor:accent}); });
+    drawBubbles();
     countries.setStyle(countries.options.style);
     if (map.hasLayer(countries)) { legend.remove(); legend.addTo(map); }
   });
 
   if (bounds.length > 1) map.fitBounds(bounds,{padding:[30,30],maxZoom:5});
   else if (bounds.length === 1) map.setView(bounds[0],4);
+  drawBubbles();
 
   // Linear interpolation along the current ramp, t in [0, 1].
   function sample(t){

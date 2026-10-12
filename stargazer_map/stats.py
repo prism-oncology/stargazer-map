@@ -43,7 +43,13 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
         if not geocode.is_place(geo):
             continue
         place = places.setdefault(
-            geo["label"], {"label": geo["label"], "count": 0, "at": Counter()}
+            geo["label"],
+            {
+                "label": geo["label"],
+                "country": geo.get("country_code"),
+                "count": 0,
+                "at": Counter(),
+            },
         )
         place["count"] += 1
         place["at"][(geo["lat"], geo["lon"])] += 1
