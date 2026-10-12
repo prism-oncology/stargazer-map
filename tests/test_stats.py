@@ -5,9 +5,11 @@ from stargazer_map.github import parse_github_url
 from stargazer_map.stats import aggregate
 
 PARIS = {"lat": 48.857, "lon": 2.352, "label": "Paris, France", "country": "France",
-         "country_code": "FR"}  # fmt: skip
+         "country_code": "FR", "level": "city"}  # fmt: skip
 LYON = {"lat": 45.758, "lon": 4.835, "label": "Lyon, France", "country": "France",
-        "country_code": "FR"}  # fmt: skip
+        "country_code": "FR", "level": "city"}  # fmt: skip
+USA = {"lat": 39.784, "lon": -100.446, "label": "United States", "country": "United States",
+       "country_code": "US", "level": "country"}  # fmt: skip
 
 
 def test_normalise_location():
@@ -126,3 +128,76 @@ def test_fetch_fails_when_token_cannot_read_any_repo(tmp_path, monkeypatch):
     with pytest.raises(RuntimeError, match="Resource not accessible"):
         stats.fetch("me", tmp_path / "data")
     assert not (tmp_path / "data" / "summary.json").exists()
+
+
+def test_aggregate_skips_country_and_state_only_locations():
+    california = {"lat": 36.7, "lon": -118.8, "label": "California, United States",
+                  "country": "United States", "country_code": "US", "level": "state"}  # fmt: skip
+    singapore = {"lat": 1.357, "lon": 103.819, "label": "Singapore", "country": "Singapore",
+                 "country_code": "SG", "level": "country"}  # fmt: skip
+    shanghai = {"lat": 31.23, "lon": 121.47, "label": "Shanghai, China", "country": "China",
+                "country_code": "CN", "level": "state"}  # fmt: skip
+    cache = {"usa": USA, "california": california, "singapore": singapore, "paris": PARIS,
+             "shanghai": shanghai}  # fmt: skip
+    users = {"a": "usa", "b": "california", "c": "singapore", "d": "paris", "e": "shanghai"}
+    stats = aggregate(users, cache)
+    # Everyone is located and counted for their country...
+    assert stats["located"] == 5
+    assert {c["code"]: c["count"] for c in stats["countries"]} == {
+        "US": 2, "SG": 1, "FR": 1, "CN": 1}  # fmt: skip
+    # ...but only real places get a bubble: a city-state, and a city Nominatim calls a state.
+    assert sorted(p["label"] for p in stats["places"]) == [
+        "Paris, France", "Shanghai, China", "Singapore"]  # fmt: skip
+
+
+def test_aggregate_legacy_cache_entries():
+    legacy_usa = {k: v for k, v in USA.items() if k != "level"}
+    legacy_paris = {k: v for k, v in PARIS.items() if k != "level"}
+    stats = aggregate({"a": "usa", "b": "paris"}, {"usa": legacy_usa, "paris": legacy_paris})
+    assert [p["label"] for p in stats["places"]] == ["Paris, France"]
+
+
+def test_aggregate_merges_places_with_the_same_label():
+    sf = {"lat": 37.788, "lon": -122.408, "label": "San Francisco, United States",
+          "country": "United States", "country_code": "US", "level": "city"}  # fmt: skip
+    bay_area = sf | {"lon": -122.356, "level": "region"}
+    cache = {"san francisco": sf, "sf": sf, "bay area": bay_area}
+    stats = aggregate({"a": "san francisco", "b": "sf", "c": "bay area"}, cache)
+    assert stats["places"] == [
+        {"lat": 37.788, "lon": -122.408, "label": "San Francisco, United States", "count": 3}
+    ]
+
+
+def test_parse_hit():
+    from stargazer_map.geocode import parse_hit
+
+    changsha = {"lat": "28.1", "lon": "113.2", "addresstype": "region", "name": "Changsha",
+                "address": {"state": "Hunan", "country": "China",
+                            "country_code": "cn"}}  # fmt: skip
+    assert parse_hit(changsha, "changsha")["label"] == "Changsha, China"
+    usa = {"lat": "39.78", "lon": "-100.45", "addresstype": "country", "name": "United States",
+           "address": {"country": "United States", "country_code": "us"}}  # fmt: skip
+    kenya = {"lat": "0.1", "lon": "37.9", "addresstype": "historic:administrative",
+             "name": "Kenya", "address": {"country": "Kenya", "country_code": "ke"}}  # fmt: skip
+    assert parse_hit(kenya, "kenya")["label"] == "Kenya"
+    assert parse_hit(usa, "usa") == {
+        "lat": 39.78, "lon": -100.45, "label": "United States", "country": "United States",
+        "country_code": "US", "level": "country",
+    }  # fmt: skip
+
+
+def test_geocode_all_refreshes_entries_without_level(tmp_path, monkeypatch):
+    from stargazer_map import geocode
+
+    legacy = {k: v for k, v in PARIS.items() if k != "level"}
+    cache = {"paris": legacy, "nowhere": None}
+    lookups = []
+
+    def nominatim(query, user_agent):
+        lookups.append(query)
+        return {"paris": PARIS, "lyon": LYON}[query]
+
+    monkeypatch.setattr(geocode, "nominatim", nominatim)
+    geocode.geocode_all({"paris", "lyon", "nowhere"}, cache, tmp_path / "c.json", 10, "ua")
+    assert lookups == ["lyon", "paris"]  # new first, then outdated; "nothing found" kept
+    assert cache == {"paris": PARIS, "lyon": LYON, "nowhere": None}

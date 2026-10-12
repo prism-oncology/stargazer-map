@@ -19,8 +19,14 @@ AGGREGATE_KEYS = ("stargazers", "with_location", "located", "places", "countries
 
 
 def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = False) -> dict:
-    """users: login -> normalised location (or None)."""
-    places: dict[tuple, dict] = {}
+    """users: login -> normalised location (or None).
+
+    Places are grouped by label, so spellings that geocode to the same city a few
+    hundred metres apart ("San Francisco", "Bay Area") make one bubble, drawn at the
+    most common of their coordinates. Country- or state-only locations count toward
+    `located` and `countries` but are not places.
+    """
+    places: dict[str, dict] = {}
     countries: Counter = Counter()
     country_names: dict[str, str] = {}
     with_location = located = 0
@@ -31,21 +37,27 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
         if not geo:
             continue
         located += 1
-        key = (geo["lat"], geo["lon"])
-        place = places.setdefault(
-            key, {"lat": geo["lat"], "lon": geo["lon"], "label": geo["label"], "count": 0}
-        )
-        place["count"] += 1
-        if include_logins:
-            place.setdefault("logins", []).append(login)
         if geo.get("country_code"):
             countries[geo["country_code"]] += 1
             country_names[geo["country_code"]] = geo.get("country") or geo["country_code"]
+        if not geocode.is_place(geo):
+            continue
+        place = places.setdefault(
+            geo["label"], {"label": geo["label"], "count": 0, "at": Counter()}
+        )
+        place["count"] += 1
+        place["at"][(geo["lat"], geo["lon"])] += 1
+        if include_logins:
+            place.setdefault("logins", []).append(login)
+    rows = []
+    for place in sorted(places.values(), key=lambda p: -p["count"]):
+        (lat, lon), _ = place.pop("at").most_common(1)[0]
+        rows.append({"lat": lat, "lon": lon} | place)
     return {
         "stargazers": len(users),
         "with_location": with_location,
         "located": located,
-        "places": sorted(places.values(), key=lambda p: -p["count"]),
+        "places": rows,
         "countries": [
             {"code": c, "name": country_names[c], "count": n} for c, n in countries.most_common()
         ],
