@@ -5,7 +5,7 @@
  "language": "Python",
  "archived": false,
  "star_count": 162,
- "generated_at": "2026-10-12T08:06:05+00:00",
+ "generated_at": "2026-10-12T09:29:14+00:00",
  "error": null,
  "stargazers": 162,
  "with_location": 90,
@@ -15,378 +15,350 @@
    "lat": 39.906,
    "lon": 116.391,
    "label": "Beijing, China",
+   "country": "CN",
    "count": 5
   },
   {
-   "lat": 48.859,
-   "lon": 2.32,
+   "lat": 48.853,
+   "lon": 2.348,
    "label": "Paris, France",
+   "country": "FR",
    "count": 4
   },
   {
    "lat": 30.249,
    "lon": 120.205,
    "label": "Hangzhou City, China",
+   "country": "CN",
    "count": 4
   },
   {
-   "lat": 39.784,
-   "lon": -100.446,
-   "label": "United States",
-   "count": 4
+   "lat": 28.2,
+   "lon": 112.972,
+   "label": "Changsha, China",
+   "country": "CN",
+   "count": 3
+  },
+  {
+   "lat": 37.788,
+   "lon": -122.356,
+   "label": "San Francisco, United States",
+   "country": "US",
+   "count": 3
   },
   {
    "lat": 50.087,
    "lon": 14.421,
    "label": "Prague, Czechia",
+   "country": "CZ",
    "count": 2
   },
   {
    "lat": 53.442,
    "lon": -2.232,
    "label": "Manchester, United Kingdom",
-   "count": 2
-  },
-  {
-   "lat": 48.644,
-   "lon": 2.754,
-   "label": "Ile-de-France, France",
+   "country": "GB",
    "count": 2
   },
   {
    "lat": 40.713,
    "lon": -74.006,
    "label": "New York, United States",
-   "count": 2
-  },
-  {
-   "lat": 46.799,
-   "lon": 8.232,
-   "label": "Switzerland",
+   "country": "US",
    "count": 2
   },
   {
    "lat": 47.374,
    "lon": 8.541,
    "label": "Zurich, Switzerland",
-   "count": 2
-  },
-  {
-   "lat": 46.603,
-   "lon": 1.888,
-   "label": "France",
-   "count": 2
-  },
-  {
-   "lat": 34.541,
-   "lon": 108.924,
-   "label": "China",
-   "count": 2
-  },
-  {
-   "lat": 28.2,
-   "lon": 112.972,
-   "label": "Changsha, China",
+   "country": "CH",
    "count": 2
   },
   {
    "lat": 48.137,
    "lon": 11.575,
    "label": "Munich, Germany",
+   "country": "DE",
    "count": 2
-  },
-  {
-   "lat": 37.788,
-   "lon": -122.356,
-   "label": "San Francisco, United States",
-   "count": 2
-  },
-  {
-   "lat": 28.145,
-   "lon": 113.238,
-   "label": "Hunan, China",
-   "count": 1
-  },
-  {
-   "lat": 59.675,
-   "lon": 14.521,
-   "label": "Sweden",
-   "count": 1
   },
   {
    "lat": 52.085,
    "lon": 0.179,
    "label": "South Cambridgeshire, United Kingdom",
+   "country": "GB",
    "count": 1
   },
   {
-   "lat": 30.271,
-   "lon": -97.744,
+   "lat": 30.265,
+   "lon": -97.747,
    "label": "Austin, United States",
+   "country": "US",
    "count": 1
   },
   {
    "lat": 28.614,
    "lon": 77.209,
    "label": "New Delhi, India",
-   "count": 1
-  },
-  {
-   "lat": 51.164,
-   "lon": 10.448,
-   "label": "Germany",
+   "country": "IN",
    "count": 1
   },
   {
    "lat": 49.261,
    "lon": -123.114,
    "label": "Vancouver, Canada",
+   "country": "CA",
    "count": 1
   },
   {
    "lat": 37.369,
    "lon": -122.036,
    "label": "Sunnyvale, United States",
+   "country": "US",
    "count": 1
   },
   {
    "lat": 37.567,
    "lon": 126.978,
    "label": "Seoul, South Korea",
+   "country": "KR",
    "count": 1
   },
   {
    "lat": 39.303,
    "lon": 117.416,
    "label": "Tianjin, China",
-   "count": 1
-  },
-  {
-   "lat": 52.243,
-   "lon": 5.634,
-   "label": "Netherlands",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 47.558,
    "lon": 7.588,
    "label": "Basel, Switzerland",
+   "country": "CH",
    "count": 1
   },
   {
    "lat": 35.913,
    "lon": -79.056,
    "label": "Chapel Hill, United States",
-   "count": 1
-  },
-  {
-   "lat": 61.153,
-   "lon": 8.788,
-   "label": "Norway",
+   "country": "US",
    "count": 1
   },
   {
    "lat": 31.231,
    "lon": 121.47,
    "label": "Shanghai, China",
-   "count": 1
-  },
-  {
-   "lat": 42.966,
-   "lon": 12.49,
-   "label": "Umbria, Italy",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 48.208,
    "lon": 16.373,
    "label": "Vienna, Austria",
+   "country": "AT",
    "count": 1
   },
   {
    "lat": 23.129,
    "lon": 113.259,
    "label": "Guangzhou City, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 39.953,
    "lon": -75.164,
    "label": "Philadelphia, United States",
+   "country": "US",
    "count": 1
   },
   {
    "lat": -27.613,
    "lon": 152.747,
    "label": "Brisbane, Australia",
+   "country": "AU",
    "count": 1
   },
   {
    "lat": 33.184,
    "lon": -97.141,
    "label": "Denton County, United States",
+   "country": "US",
    "count": 1
   },
   {
    "lat": 51.054,
    "lon": 3.725,
    "label": "Ghent, Belgium",
+   "country": "BE",
    "count": 1
   },
   {
    "lat": 55.605,
    "lon": 13.0,
    "label": "Malmö, Sweden",
+   "country": "SE",
    "count": 1
   },
   {
    "lat": 27.682,
    "lon": 112.626,
-   "label": "Hunan, China",
+   "label": "Xiangtan, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 42.366,
    "lon": -71.104,
    "label": "Cambridge, United States",
-   "count": 1
-  },
-  {
-   "lat": 38.995,
-   "lon": 21.988,
-   "label": "Greece",
-   "count": 1
-  },
-  {
-   "lat": 37.788,
-   "lon": -122.408,
-   "label": "San Francisco, United States",
+   "country": "US",
    "count": 1
   },
   {
    "lat": 50.879,
    "lon": 4.701,
    "label": "Leuven, Belgium",
+   "country": "BE",
    "count": 1
   },
   {
    "lat": 48.098,
    "lon": 9.79,
    "label": "Biberach an der Riß, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 52.374,
    "lon": 9.739,
    "label": "Hanover, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 22.545,
    "lon": 114.055,
    "label": "Shenzhen, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 43.653,
    "lon": -79.384,
    "label": "Toronto, Canada",
+   "country": "CA",
    "count": 1
   },
   {
    "lat": 48.52,
    "lon": 9.054,
    "label": "Tübingen, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": -37.814,
    "lon": 144.963,
    "label": "Melbourne, Australia",
+   "country": "AU",
    "count": 1
   },
   {
    "lat": 43.604,
    "lon": 1.444,
    "label": "Toulouse, France",
+   "country": "FR",
    "count": 1
   },
   {
    "lat": 19.321,
    "lon": -99.151,
    "label": "Mexico City, Mexico",
+   "country": "MX",
    "count": 1
   },
   {
    "lat": 52.198,
    "lon": 0.139,
    "label": "Cambridge, United Kingdom",
+   "country": "GB",
    "count": 1
   },
   {
    "lat": 41.006,
    "lon": 28.976,
    "label": "Istanbul, Turkey",
+   "country": "TR",
    "count": 1
   },
   {
    "lat": 59.913,
    "lon": 10.739,
    "label": "Oslo, Norway",
+   "country": "NO",
    "count": 1
   },
   {
    "lat": 34.261,
    "lon": 108.942,
    "label": "Xi'an, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 52.408,
    "lon": -1.51,
    "label": "Coventry, United Kingdom",
+   "country": "GB",
    "count": 1
   },
   {
    "lat": 46.522,
    "lon": 6.633,
    "label": "Lausanne, Switzerland",
+   "country": "CH",
    "count": 1
   },
   {
    "lat": 30.055,
    "lon": 107.875,
    "label": "Chongqing, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": -23.551,
    "lon": -46.633,
    "label": "São Paulo, Brazil",
+   "country": "BR",
    "count": 1
   },
   {
    "lat": 52.517,
    "lon": 13.395,
    "label": "Berlin, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 37.263,
    "lon": 127.029,
    "label": "Suwon-si, South Korea",
+   "country": "KR",
    "count": 1
   },
   {
    "lat": 45.759,
    "lon": 126.628,
    "label": "Harbin, China",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 30.579,
    "lon": 114.292,
    "label": "Wuhan, China",
+   "country": "CN",
    "count": 1
   }
  ],

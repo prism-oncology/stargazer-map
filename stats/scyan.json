@@ -5,136 +5,122 @@
  "language": "Python",
  "archived": false,
  "star_count": 47,
- "generated_at": "2026-10-12T08:06:05+00:00",
+ "generated_at": "2026-10-12T09:29:14+00:00",
  "error": null,
  "stargazers": 46,
  "with_location": 25,
  "located": 25,
  "places": [
   {
-   "lat": 39.784,
-   "lon": -100.446,
-   "label": "United States",
-   "count": 2
-  },
-  {
    "lat": -37.814,
    "lon": 144.963,
    "label": "Melbourne, Australia",
+   "country": "AU",
    "count": 2
   },
   {
-   "lat": 48.859,
-   "lon": 2.32,
+   "lat": 48.853,
+   "lon": 2.348,
    "label": "Paris, France",
+   "country": "FR",
    "count": 2
   },
   {
    "lat": 37.788,
    "lon": -122.356,
    "label": "San Francisco, United States",
+   "country": "US",
    "count": 2
   },
   {
    "lat": 34.694,
    "lon": 135.501,
    "label": "Osaka, Japan",
-   "count": 1
-  },
-  {
-   "lat": 48.644,
-   "lon": 2.754,
-   "label": "Ile-de-France, France",
+   "country": "JP",
    "count": 1
   },
   {
    "lat": 30.66,
    "lon": 104.063,
    "label": "Chengdu, China",
-   "count": 1
-  },
-  {
-   "lat": 51.0,
-   "lon": 10.0,
-   "label": "Europe",
+   "country": "CN",
    "count": 1
   },
   {
    "lat": 48.137,
    "lon": 11.575,
    "label": "Munich, Germany",
-   "count": 1
-  },
-  {
-   "lat": 38.725,
-   "lon": -105.608,
-   "label": "Colorado, United States",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 51.054,
    "lon": 3.725,
    "label": "Ghent, Belgium",
+   "country": "BE",
    "count": 1
   },
   {
    "lat": 51.507,
    "lon": -0.128,
    "label": "Greater London, United Kingdom",
+   "country": "GB",
    "count": 1
   },
   {
    "lat": 51.752,
    "lon": -1.258,
    "label": "Oxford, United Kingdom",
-   "count": 1
-  },
-  {
-   "lat": 38.995,
-   "lon": 21.988,
-   "label": "Greece",
+   "country": "GB",
    "count": 1
   },
   {
    "lat": 50.847,
    "lon": 4.352,
    "label": "Brussels, Belgium",
+   "country": "BE",
    "count": 1
   },
   {
    "lat": 48.098,
    "lon": 9.79,
    "label": "Biberach an der Riß, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 49.02,
    "lon": 12.097,
    "label": "Regensburg, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 38.708,
    "lon": -9.137,
    "label": "Lisbon, Portugal",
+   "country": "PT",
    "count": 1
   },
   {
    "lat": 52.517,
    "lon": 13.395,
    "label": "Berlin, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 52.374,
    "lon": 9.739,
    "label": "Hanover, Germany",
+   "country": "DE",
    "count": 1
   },
   {
    "lat": 46.522,
    "lon": 6.633,
    "label": "Lausanne, Switzerland",
+   "country": "CH",
    "count": 1
   }
  ],

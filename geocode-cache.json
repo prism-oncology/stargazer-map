@@ -4,280 +4,320 @@
   "lon": 152.747,
   "label": "Brisbane, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "amenity"
  },
  "aarhus, denmark": {
   "lat": 56.15,
   "lon": 10.213,
   "label": "Aarhus, Denmark",
   "country": "Denmark",
-  "country_code": "DK"
+  "country_code": "DK",
+  "level": "city"
  },
  "adelaide": {
   "lat": -34.928,
   "lon": 138.6,
   "label": "Adelaide, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "albuquerque, nm, usa": {
   "lat": 35.084,
   "lon": -106.651,
   "label": "Albuquerque, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "arlington, ma": {
   "lat": 42.415,
   "lon": -71.156,
   "label": "Arlington, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "town"
  },
  "arlington, va": {
   "lat": 38.877,
   "lon": -77.089,
   "label": "Arlington County, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "county"
  },
  "aurora, colorado": {
   "lat": 39.74,
   "lon": -104.873,
   "label": "Aurora, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "austin, tx": {
-  "lat": 30.271,
-  "lon": -97.744,
+  "lat": 30.265,
+  "lon": -97.747,
   "label": "Austin, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "basel": {
   "lat": 47.558,
   "lon": 7.588,
   "label": "Basel, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "basel, switzerland": {
   "lat": 47.558,
   "lon": 7.588,
   "label": "Basel, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "bay area": {
   "lat": 37.788,
   "lon": -122.356,
   "label": "San Francisco, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "region"
  },
  "bay area, ca": {
   "lat": 37.788,
   "lon": -122.356,
   "label": "San Francisco, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "region"
  },
  "beijing": {
   "lat": 39.906,
   "lon": 116.391,
   "label": "Beijing, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "beijing, china": {
   "lat": 39.906,
   "lon": 116.391,
   "label": "Beijing, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "berlin": {
   "lat": 52.517,
   "lon": 13.395,
   "label": "Berlin, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "berlin, germany": {
   "lat": 52.517,
   "lon": 13.395,
   "label": "Berlin, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "bethesda, md": {
   "lat": 38.981,
   "lon": -77.123,
   "label": "Bethesda, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "statistical"
  },
  "bh": {
   "lat": 26.155,
   "lon": 50.534,
   "label": "Bahrain",
   "country": "Bahrain",
-  "country_code": "BH"
+  "country_code": "BH",
+  "level": "country"
  },
  "biberach, de": {
   "lat": 48.098,
   "lon": 9.79,
   "label": "Biberach an der Riß, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "town"
  },
  "boston": {
   "lat": 42.359,
   "lon": -71.058,
   "label": "Boston, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "boston, ma": {
   "lat": 42.359,
   "lon": -71.058,
   "label": "Boston, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "brussels (belgium)": {
   "lat": 50.847,
   "lon": 4.352,
   "label": "Brussels, Belgium",
   "country": "Belgium",
-  "country_code": "BE"
+  "country_code": "BE",
+  "level": "city"
  },
  "california, united states": {
   "lat": 36.701,
   "lon": -118.756,
   "label": "California, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "state"
  },
  "cambridge": {
   "lat": 52.198,
   "lon": 0.139,
   "label": "Cambridge, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "cambridge, ma": {
   "lat": 42.366,
   "lon": -71.104,
   "label": "Cambridge, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "cambridge, uk": {
   "lat": 52.198,
   "lon": 0.139,
   "label": "Cambridge, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "changsha": {
   "lat": 28.145,
   "lon": 113.238,
-  "label": "Hunan, China",
+  "label": "Changsha, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "region"
  },
  "changsha city, hunan province, china": {
   "lat": 28.2,
   "lon": 112.972,
   "label": "Changsha, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "chapel hill": {
   "lat": 35.913,
   "lon": -79.056,
   "label": "Chapel Hill, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "chengdu": {
   "lat": 30.66,
   "lon": 104.063,
   "label": "Chengdu, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "china": {
   "lat": 34.541,
   "lon": 108.924,
   "label": "China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "country"
  },
  "chongqing, china": {
   "lat": 30.055,
   "lon": 107.875,
   "label": "Chongqing, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "state"
  },
  "college station": {
   "lat": 30.618,
   "lon": -96.346,
   "label": "College Station, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "cologne": {
   "lat": 50.938,
   "lon": 6.96,
   "label": "Cologne, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "colorado, usa": {
   "lat": 38.725,
   "lon": -105.608,
   "label": "Colorado, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "state"
  },
  "columbus, oh, usa": {
   "lat": 39.962,
   "lon": -83.001,
   "label": "Columbus, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "coventry, uk": {
   "lat": 52.408,
   "lon": -1.51,
   "label": "Coventry, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "denmark": {
   "lat": 55.67,
   "lon": 10.333,
   "label": "Denmark",
   "country": "Denmark",
-  "country_code": "DK"
+  "country_code": "DK",
+  "level": "country"
  },
  "denton, texas": {
   "lat": 33.184,
   "lon": -97.141,
   "label": "Denton County, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "county"
  },
  "dresden, germany": {
   "lat": 51.049,
   "lon": 13.738,
   "label": "Dresden, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "dubai, uae (via washington dc)": null,
  "edinburgh, uk": {
@@ -285,455 +325,520 @@
   "lon": -3.188,
   "label": "City of Edinburgh, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "erlangen": {
   "lat": 49.589,
   "lon": 10.981,
   "label": "Erlangen, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "county"
  },
  "europe": {
   "lat": 51.0,
   "lon": 10.0,
   "label": "Europe",
   "country": null,
-  "country_code": null
+  "country_code": null,
+  "level": "continent"
  },
  "farmington, ct": {
   "lat": 41.72,
   "lon": -72.832,
   "label": "Farmington, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "town"
  },
  "france": {
   "lat": 46.603,
   "lon": 1.888,
   "label": "France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "country"
  },
  "germany": {
   "lat": 51.164,
   "lon": 10.448,
   "label": "Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "country"
  },
  "ghent, belgium": {
   "lat": 51.054,
   "lon": 3.725,
   "label": "Ghent, Belgium",
   "country": "Belgium",
-  "country_code": "BE"
+  "country_code": "BE",
+  "level": "city"
  },
  "giessen, germany": {
   "lat": 50.586,
   "lon": 8.674,
   "label": "Giessen, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "town"
  },
  "greece": {
   "lat": 38.995,
   "lon": 21.988,
   "label": "Greece",
   "country": "Greece",
-  "country_code": "GR"
+  "country_code": "GR",
+  "level": "country"
  },
  "guangzhou, china": {
   "lat": 23.129,
   "lon": 113.259,
   "label": "Guangzhou City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "hangzhou": {
   "lat": 30.249,
   "lon": 120.205,
   "label": "Hangzhou City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "hangzhou , china": {
   "lat": 30.249,
   "lon": 120.205,
   "label": "Hangzhou City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "hangzhou, china": {
   "lat": 30.249,
   "lon": 120.205,
   "label": "Hangzhou City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "hannover": {
   "lat": 52.374,
   "lon": 9.739,
   "label": "Hanover, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "harbin, china": {
   "lat": 45.759,
   "lon": 126.628,
   "label": "Harbin, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "heidelberg": {
   "lat": 49.409,
   "lon": 8.695,
   "label": "Heidelberg, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "helsinki": {
   "lat": 60.167,
   "lon": 24.944,
   "label": "Helsinki, Finland",
   "country": "Finland",
-  "country_code": "FI"
+  "country_code": "FI",
+  "level": "city"
  },
  "hinxton": {
   "lat": 52.085,
   "lon": 0.179,
   "label": "South Cambridgeshire, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "village"
  },
  "ho chi minh city": {
   "lat": 10.774,
   "lon": 106.717,
   "label": "Ho Chi Minh City, Vietnam",
   "country": "Vietnam",
-  "country_code": "VN"
+  "country_code": "VN",
+  "level": "city"
  },
  "hong kong": {
-  "lat": 22.282,
-  "lon": 114.158,
+  "lat": 22.349,
+  "lon": 114.186,
   "label": "Hong Kong, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "region"
  },
  "hong kong/shanghai, china": {
   "lat": 31.198,
   "lon": 121.334,
-  "label": "Minhang District, China",
+  "label": "Changning District, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "aeroway"
  },
  "houston": {
   "lat": 29.759,
   "lon": -95.368,
   "label": "Houston, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "ile-de-france": {
   "lat": 48.644,
   "lon": 2.754,
   "label": "Ile-de-France, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "state"
  },
  "istanbul": {
   "lat": 41.006,
   "lon": 28.976,
   "label": "Istanbul, Turkey",
   "country": "Turkey",
-  "country_code": "TR"
+  "country_code": "TR",
+  "level": "city"
  },
  "japan": {
   "lat": 36.575,
   "lon": 139.239,
   "label": "Japan",
   "country": "Japan",
-  "country_code": "JP"
+  "country_code": "JP",
+  "level": "country"
  },
  "jülich, germany": {
   "lat": 50.922,
   "lon": 6.361,
   "label": "Jülich, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "town"
  },
  "karlsruhe": {
   "lat": 49.007,
   "lon": 8.403,
   "label": "Karlsruhe, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "kenya": {
   "lat": 0.279,
   "lon": 37.516,
   "label": "Kenya",
   "country": "Kenya",
-  "country_code": "KE"
+  "country_code": "KE",
+  "level": "historic:administrative"
  },
  "kyoto": {
   "lat": 35.012,
   "lon": 135.768,
   "label": "Kyoto, Japan",
   "country": "Japan",
-  "country_code": "JP"
+  "country_code": "JP",
+  "level": "city"
  },
  "lausanne": {
   "lat": 46.522,
   "lon": 6.633,
   "label": "Lausanne, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "lausanne / switzerland": {
   "lat": 46.522,
   "lon": 6.633,
   "label": "Lausanne, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "lausanne, switzerland": {
   "lat": 46.522,
   "lon": 6.633,
   "label": "Lausanne, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "lebanon, nh": {
   "lat": 43.643,
   "lon": -72.252,
   "label": "Lebanon, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "leuven, belgium": {
   "lat": 50.879,
   "lon": 4.701,
   "label": "Leuven, Belgium",
   "country": "Belgium",
-  "country_code": "BE"
+  "country_code": "BE",
+  "level": "city"
  },
  "lisbon": {
   "lat": 38.708,
   "lon": -9.137,
   "label": "Lisbon, Portugal",
   "country": "Portugal",
-  "country_code": "PT"
+  "country_code": "PT",
+  "level": "city"
  },
  "london": {
   "lat": 51.507,
   "lon": -0.128,
   "label": "Greater London, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "london, uk": {
   "lat": 51.507,
   "lon": -0.128,
   "label": "Greater London, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "london, united kingdom": {
   "lat": 51.507,
   "lon": -0.128,
   "label": "Greater London, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "lund": {
   "lat": 55.703,
   "lon": 13.193,
   "label": "Lund, Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "city"
  },
  "lyon": {
   "lat": 45.758,
   "lon": 4.832,
   "label": "Lyon, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "lyon, france": {
   "lat": 45.758,
   "lon": 4.832,
   "label": "Lyon, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "malmö": {
   "lat": 55.605,
   "lon": 13.0,
   "label": "Malmö, Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "city"
  },
  "manchester": {
   "lat": 53.442,
   "lon": -2.232,
   "label": "Manchester, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "manchester, united kingdom": {
   "lat": 53.442,
   "lon": -2.232,
   "label": "Manchester, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "mars": {
   "lat": 45.022,
   "lon": 4.322,
   "label": "Mars, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "village"
  },
  "marseille, france": {
   "lat": 43.296,
   "lon": 5.378,
   "label": "Marseille, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "melbourne": {
   "lat": -37.814,
   "lon": 144.963,
   "label": "Melbourne, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "melbourne, australia": {
   "lat": -37.814,
   "lon": 144.963,
   "label": "Melbourne, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "melbourne, vic": {
   "lat": -37.814,
   "lon": 144.963,
   "label": "Melbourne, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "melbourne, vic, australia": {
   "lat": -37.814,
   "lon": 144.963,
   "label": "Melbourne, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "mexico city, mexico": {
   "lat": 19.321,
   "lon": -99.151,
   "label": "Mexico City, Mexico",
   "country": "Mexico",
-  "country_code": "MX"
+  "country_code": "MX",
+  "level": "state"
  },
  "miami, fl": {
   "lat": 25.774,
   "lon": -80.194,
   "label": "Miami, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "milan, italy": {
   "lat": 45.464,
   "lon": 9.19,
   "label": "Milan, Italy",
   "country": "Italy",
-  "country_code": "IT"
+  "country_code": "IT",
+  "level": "city"
  },
  "milan,italy": {
   "lat": 45.464,
   "lon": 9.19,
   "label": "Milan, Italy",
   "country": "Italy",
-  "country_code": "IT"
+  "country_code": "IT",
+  "level": "city"
  },
  "montreal, qc, canada": {
   "lat": 45.503,
   "lon": -73.57,
   "label": "Montreal, Canada",
   "country": "Canada",
-  "country_code": "CA"
+  "country_code": "CA",
+  "level": "city"
  },
  "munich": {
   "lat": 48.137,
   "lon": 11.575,
   "label": "Munich, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "munich, germany": {
   "lat": 48.137,
   "lon": 11.575,
   "label": "Munich, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "nanjing": {
   "lat": 32.044,
   "lon": 118.779,
   "label": "Nanjing City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "nanjing, china": {
   "lat": 32.044,
   "lon": 118.779,
   "label": "Nanjing City, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "nashville, tn, usa": {
   "lat": 36.162,
   "lon": -86.774,
   "label": "Nashville, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "netherlands": {
   "lat": 52.243,
   "lon": 5.634,
   "label": "Netherlands",
   "country": "Netherlands",
-  "country_code": "NL"
+  "country_code": "NL",
+  "level": "country"
  },
  "new delhi, delhi, india": {
   "lat": 28.614,
   "lon": 77.209,
   "label": "New Delhi, India",
   "country": "India",
-  "country_code": "IN"
+  "country_code": "IN",
+  "level": "city"
  },
  "new haven, ct": {
   "lat": 41.308,
   "lon": -72.925,
   "label": "New Haven, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "new york, new york": {
   "lat": 40.713,
   "lon": -74.006,
   "label": "New York, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "new york, ny": {
   "lat": 40.713,
   "lon": -74.006,
   "label": "New York, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "no. 40-1, south beijing road, urumqi city": null,
  "no. 800, dongchuan road, old minhang district, shanghai, china": null,
@@ -742,196 +847,224 @@
   "lon": 8.788,
   "label": "Norway",
   "country": "Norway",
-  "country_code": "NO"
+  "country_code": "NO",
+  "level": "country"
  },
  "nyc": {
   "lat": 40.713,
   "lon": -74.006,
   "label": "New York, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "osaka, japan": {
   "lat": 34.694,
   "lon": 135.501,
   "label": "Osaka, Japan",
   "country": "Japan",
-  "country_code": "JP"
+  "country_code": "JP",
+  "level": "city"
  },
  "oslo/norway": {
   "lat": 59.913,
   "lon": 10.739,
   "label": "Oslo, Norway",
   "country": "Norway",
-  "country_code": "NO"
+  "country_code": "NO",
+  "level": "city"
  },
  "oxford": {
   "lat": 51.752,
   "lon": -1.258,
   "label": "Oxford, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "oxford, united kingdom": {
   "lat": 51.752,
   "lon": -1.258,
   "label": "Oxford, United Kingdom",
   "country": "United Kingdom",
-  "country_code": "GB"
+  "country_code": "GB",
+  "level": "city"
  },
  "padova": {
   "lat": 45.391,
   "lon": 11.806,
   "label": "Province of Padua, Italy",
   "country": "Italy",
-  "country_code": "IT"
+  "country_code": "IT",
+  "level": "county"
  },
  "palo alto": {
   "lat": 37.444,
   "lon": -122.16,
   "label": "Palo Alto, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "palo alto, ca": {
   "lat": 37.444,
   "lon": -122.16,
   "label": "Palo Alto, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "pamplona, spain": {
   "lat": 42.816,
   "lon": -1.652,
   "label": "Pamplona, Spain",
   "country": "Spain",
-  "country_code": "ES"
+  "country_code": "ES",
+  "level": "city"
  },
  "paris": {
-  "lat": 48.859,
-  "lon": 2.32,
+  "lat": 48.853,
+  "lon": 2.348,
   "label": "Paris, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "paris, france": {
-  "lat": 48.859,
-  "lon": 2.32,
+  "lat": 48.853,
+  "lon": 2.348,
   "label": "Paris, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "perth, wa australia": {
   "lat": -31.956,
   "lon": 115.861,
   "label": "Perth, Australia",
   "country": "Australia",
-  "country_code": "AU"
+  "country_code": "AU",
+  "level": "city"
  },
  "philadelphia": {
   "lat": 39.953,
   "lon": -75.164,
   "label": "Philadelphia, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "philadelphia usa": {
   "lat": 39.953,
   "lon": -75.164,
   "label": "Philadelphia, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "portland, or": {
   "lat": 45.52,
   "lon": -122.674,
   "label": "Portland, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "prague": {
   "lat": 50.087,
   "lon": 14.421,
   "label": "Prague, Czechia",
   "country": "Czechia",
-  "country_code": "CZ"
+  "country_code": "CZ",
+  "level": "city"
  },
  "prague, cz": {
   "lat": 50.087,
   "lon": 14.421,
   "label": "Prague, Czechia",
   "country": "Czechia",
-  "country_code": "CZ"
+  "country_code": "CZ",
+  "level": "city"
  },
  "regensburg": {
   "lat": 49.02,
   "lon": 12.097,
   "label": "Regensburg, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "city"
  },
  "rockville, md": {
   "lat": 39.082,
   "lon": -77.152,
   "label": "Rockville, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "san diego": {
   "lat": 32.716,
   "lon": -117.164,
   "label": "San Diego, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "san francisco": {
   "lat": 37.788,
   "lon": -122.408,
   "label": "San Francisco, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "seattle": {
   "lat": 47.604,
   "lon": -122.33,
   "label": "Seattle, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "seattle, wa": {
   "lat": 47.604,
   "lon": -122.33,
   "label": "Seattle, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "seattle, wa, usa": {
   "lat": 47.604,
   "lon": -122.33,
   "label": "Seattle, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "seattle, washington": {
   "lat": 47.604,
   "lon": -122.33,
   "label": "Seattle, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "seoul": {
   "lat": 37.567,
   "lon": 126.978,
   "label": "Seoul, South Korea",
   "country": "South Korea",
-  "country_code": "KR"
+  "country_code": "KR",
+  "level": "city"
  },
  "shanghai": {
   "lat": 31.231,
   "lon": 121.47,
   "label": "Shanghai, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "state"
  },
  "shanghai, china": {
   "lat": 31.231,
@@ -945,21 +1078,24 @@
   "lon": 114.055,
   "label": "Shenzhen, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "singapore": {
   "lat": 1.357,
   "lon": 103.819,
   "label": "Singapore",
   "country": "Singapore",
-  "country_code": "SG"
+  "country_code": "SG",
+  "level": "country"
  },
  "slovenia": {
   "lat": 46.12,
   "lon": 14.815,
   "label": "Slovenia",
   "country": "Slovenia",
-  "country_code": "SI"
+  "country_code": "SI",
+  "level": "country"
  },
  "slovenia/remote": null,
  "stanford, ca": {
@@ -967,279 +1103,319 @@
   "lon": -122.17,
   "label": "Palo Alto, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "census"
  },
  "stockholm, sweden": {
   "lat": 59.325,
   "lon": 18.071,
   "label": "Stockholm, Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "city"
  },
  "strasbourg, france": {
   "lat": 48.585,
   "lon": 7.751,
   "label": "Strasbourg, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "sunnyvale": {
   "lat": 37.369,
   "lon": -122.036,
   "label": "Sunnyvale, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "suwon": {
   "lat": 37.263,
   "lon": 127.029,
   "label": "Suwon-si, South Korea",
   "country": "South Korea",
-  "country_code": "KR"
+  "country_code": "KR",
+  "level": "city"
  },
  "sweden": {
   "lat": 59.675,
   "lon": 14.521,
   "label": "Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "country"
  },
  "sweden, stockholm": {
   "lat": 59.325,
   "lon": 18.071,
   "label": "Stockholm, Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "city"
  },
  "switzerland": {
   "lat": 46.799,
   "lon": 8.232,
   "label": "Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "country"
  },
  "são paulo - sp": {
   "lat": -23.551,
   "lon": -46.633,
   "label": "São Paulo, Brazil",
   "country": "Brazil",
-  "country_code": "BR"
+  "country_code": "BR",
+  "level": "city"
  },
  "são paulo, brazil": {
   "lat": -23.551,
   "lon": -46.633,
   "label": "São Paulo, Brazil",
   "country": "Brazil",
-  "country_code": "BR"
+  "country_code": "BR",
+  "level": "city"
  },
  "taipai": {
   "lat": 25.097,
   "lon": 121.515,
   "label": "Taipei, Taiwan",
   "country": "Taiwan",
-  "country_code": "TW"
+  "country_code": "TW",
+  "level": "recreation_ground"
  },
  "tianjin": {
   "lat": 39.303,
   "lon": 117.416,
   "label": "Tianjin, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "state"
  },
  "tokyo": {
   "lat": 35.677,
   "lon": 139.764,
   "label": "Tokyo, Japan",
   "country": "Japan",
-  "country_code": "JP"
+  "country_code": "JP",
+  "level": "city"
  },
  "toronto, canada": {
   "lat": 43.653,
   "lon": -79.384,
   "label": "Toronto, Canada",
   "country": "Canada",
-  "country_code": "CA"
+  "country_code": "CA",
+  "level": "city"
  },
  "toronto, on, canada": {
   "lat": 43.653,
   "lon": -79.384,
   "label": "Toronto, Canada",
   "country": "Canada",
-  "country_code": "CA"
+  "country_code": "CA",
+  "level": "city"
  },
  "toulouse": {
   "lat": 43.604,
   "lon": 1.444,
   "label": "Toulouse, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "toulouse - france": {
   "lat": 43.604,
   "lon": 1.444,
   "label": "Toulouse, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "city"
  },
  "tübingen, germany": {
   "lat": 48.52,
   "lon": 9.054,
   "label": "Tübingen, Germany",
   "country": "Germany",
-  "country_code": "DE"
+  "country_code": "DE",
+  "level": "town"
  },
  "uk/india/usa": {
   "lat": 23.788,
   "lon": 90.401,
   "label": "Dhaka, Bangladesh",
   "country": "Bangladesh",
-  "country_code": "BD"
+  "country_code": "BD",
+  "level": "shop"
  },
  "umbria": {
   "lat": 42.966,
   "lon": 12.49,
   "label": "Umbria, Italy",
   "country": "Italy",
-  "country_code": "IT"
+  "country_code": "IT",
+  "level": "state"
  },
  "united states": {
   "lat": 39.784,
   "lon": -100.446,
   "label": "United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "country"
  },
  "uppsala, sweden": {
   "lat": 59.859,
   "lon": 17.639,
   "label": "Uppsala, Sweden",
   "country": "Sweden",
-  "country_code": "SE"
+  "country_code": "SE",
+  "level": "city"
  },
  "us": {
   "lat": 39.784,
   "lon": -100.446,
   "label": "United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "country"
  },
  "usa": {
   "lat": 39.784,
   "lon": -100.446,
   "label": "United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "country"
  },
  "vancouver, canada": {
   "lat": 49.261,
   "lon": -123.114,
   "label": "Vancouver, Canada",
   "country": "Canada",
-  "country_code": "CA"
+  "country_code": "CA",
+  "level": "city"
  },
  "vienna": {
   "lat": 48.208,
   "lon": 16.373,
   "label": "Vienna, Austria",
   "country": "Austria",
-  "country_code": "AT"
+  "country_code": "AT",
+  "level": "city"
  },
  "vienna, austria": {
   "lat": 48.208,
   "lon": 16.373,
   "label": "Vienna, Austria",
   "country": "Austria",
-  "country_code": "AT"
+  "country_code": "AT",
+  "level": "city"
  },
  "villejuif": {
   "lat": 48.792,
   "lon": 2.363,
   "label": "Villejuif, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "town"
  },
  "wageningen, the netherlands": {
   "lat": 51.966,
   "lon": 5.666,
   "label": "Wageningen, Netherlands",
   "country": "Netherlands",
-  "country_code": "NL"
+  "country_code": "NL",
+  "level": "town"
  },
  "waltham, ma": {
   "lat": 42.376,
   "lon": -71.236,
   "label": "Waltham, United States",
   "country": "United States",
-  "country_code": "US"
+  "country_code": "US",
+  "level": "city"
  },
  "wuhan, china": {
   "lat": 30.579,
   "lon": 114.292,
   "label": "Wuhan, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "www": {
   "lat": 35.662,
   "lon": 139.699,
   "label": "Shibuya, Japan",
   "country": "Japan",
-  "country_code": "JP"
+  "country_code": "JP",
+  "level": "amenity"
  },
  "xi'an, shaanxi, china": {
   "lat": 34.261,
   "lon": 108.942,
   "label": "Xi'an, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "city"
  },
  "xiangtan": {
   "lat": 27.682,
   "lon": 112.626,
-  "label": "Hunan, China",
+  "label": "Xiangtan, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "region"
  },
  "xidian university": {
   "lat": 34.125,
   "lon": 108.829,
   "label": "Chang'an District, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "amenity"
  },
  "zaragoza, spain": {
   "lat": 41.692,
   "lon": -0.91,
   "label": "Zaragoza, Spain",
   "country": "Spain",
-  "country_code": "ES"
+  "country_code": "ES",
+  "level": "city"
  },
  "zurich": {
   "lat": 47.374,
   "lon": 8.541,
   "label": "Zurich, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "zurich, switzerland": {
   "lat": 47.374,
   "lon": 8.541,
   "label": "Zurich, Switzerland",
   "country": "Switzerland",
-  "country_code": "CH"
+  "country_code": "CH",
+  "level": "city"
  },
  "île-de-france": {
   "lat": 48.644,
   "lon": 2.754,
   "label": "Ile-de-France, France",
   "country": "France",
-  "country_code": "FR"
+  "country_code": "FR",
+  "level": "state"
  },
  "上海": {
   "lat": 31.231,
   "lon": 121.47,
   "label": "Shanghai, China",
   "country": "China",
-  "country_code": "CN"
+  "country_code": "CN",
+  "level": "state"
  }
 }
