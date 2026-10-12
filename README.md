@@ -31,7 +31,7 @@ The workflow keeps its data (stats and `geocode-cache.json`) on a separate `data
 
 ### Options
 
-Set these in the `env:` blocks of `.github/workflows/update-maps.yml`. `MAP_LAYERS` goes on the *Build site* step, the others on the *Fetch* step:
+Set these in the `env:` blocks of `.github/workflows/update-maps.yml`. `MAP_LAYERS`, `MIN_STARS` and `LOGO` go on the *Build site* step, the others on the *Fetch* step:
 
 | Variable | Default | Effect |
 |---|---|---|
@@ -40,6 +40,8 @@ Set these in the `env:` blocks of `.github/workflows/update-maps.yml`. `MAP_LAYE
 | `INCLUDE_LOGINS` | `false` | Show stargazers' usernames in map popups and in the published JSON |
 | `MAX_GEOCODE` | `800` | Maximum number of new locations geocoded per run |
 | `MAP_LAYERS` | `countries,bubbles` | Map views shown when a page opens: `countries`, `bubbles`, or both. Visitors can still toggle each one |
+| `MIN_STARS` | `0` (`10` for prism-oncology) | Only list repositories with at least this many stars. Smaller repositories get no page or card, but their stargazers still count on the overview map |
+| `LOGO` | none (`branding/prism-oncology.jpeg` for prism-oncology) | Image file (svg, png, jpg or webp) shown at the top of every page. Put yours in `branding/` |
 
 ## Token
 
