@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-10-09T20:21:52+00:00",
+ "generated_at": "2026-10-12T08:06:05+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -33,9 +33,9 @@
    "description": "Biology-driven deep generative model for cell-type annotation in cytometry. Scyan is an interpretable model that also corrects batch-effect and can be used for debarcoding or population discovery.",
    "language": "Python",
    "archived": false,
-   "star_count": 46,
-   "stargazers": 45,
-   "located": 24,
+   "star_count": 47,
+   "stargazers": 46,
+   "located": 25,
    "error": null,
    "countries": 11
   },
@@ -50,6 +50,18 @@
    "located": 18,
    "error": null,
    "countries": 10
+  },
+  {
+   "repo": "omni",
+   "url": "https://github.com/prism-oncology/omni",
+   "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
+   "language": "Python",
+   "archived": false,
+   "star_count": 3,
+   "stargazers": 3,
+   "located": 1,
+   "error": null,
+   "countries": 1
   },
   {
    "repo": "novae_benchmark",
@@ -72,18 +84,6 @@
    "star_count": 2,
    "stargazers": 2,
    "located": 2,
-   "error": null,
-   "countries": 1
-  },
-  {
-   "repo": "omni",
-   "url": "https://github.com/prism-oncology/omni",
-   "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
-   "language": "Python",
-   "archived": false,
-   "star_count": 1,
-   "stargazers": 1,
-   "located": 1,
    "error": null,
    "countries": 1
   },
@@ -125,7 +125,7 @@
   }
  ],
  "overall": {
-  "stargazers": 463,
+  "stargazers": 465,
   "with_location": 249,
   "located": 245,
   "countries": 33
