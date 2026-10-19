@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-10-12T11:58:24+00:00",
+ "generated_at": "2026-10-19T09:53:35+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -57,11 +57,11 @@
    "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
    "language": "Python",
    "archived": false,
-   "star_count": 3,
-   "stargazers": 3,
-   "located": 1,
+   "star_count": 10,
+   "stargazers": 10,
+   "located": 7,
    "error": null,
-   "countries": 1
+   "countries": 5
   },
   {
    "repo": "novae_benchmark",
@@ -125,9 +125,9 @@
   }
  ],
  "overall": {
-  "stargazers": 465,
-  "with_location": 249,
-  "located": 245,
+  "stargazers": 471,
+  "with_location": 254,
+  "located": 250,
   "countries": 33
  }
 }

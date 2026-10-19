@@ -4,25 +4,73 @@
  "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
  "language": "Python",
  "archived": false,
- "star_count": 3,
- "generated_at": "2026-10-12T11:58:24+00:00",
+ "star_count": 10,
+ "generated_at": "2026-10-19T09:53:35+00:00",
  "error": null,
- "stargazers": 3,
- "with_location": 1,
- "located": 1,
+ "stargazers": 10,
+ "with_location": 7,
+ "located": 7,
  "places": [
   {
    "lat": 48.853,
    "lon": 2.348,
    "label": "Paris, France",
    "country": "FR",
+   "count": 2
+  },
+  {
+   "lat": 37.444,
+   "lon": -122.16,
+   "label": "Palo Alto, United States",
+   "country": "US",
+   "count": 1
+  },
+  {
+   "lat": -37.814,
+   "lon": 144.963,
+   "label": "Melbourne, Australia",
+   "country": "AU",
+   "count": 1
+  },
+  {
+   "lat": 40.713,
+   "lon": -74.006,
+   "label": "New York, United States",
+   "country": "US",
+   "count": 1
+  },
+  {
+   "lat": 30.66,
+   "lon": 104.063,
+   "label": "Chengdu, China",
+   "country": "CN",
    "count": 1
   }
  ],
  "countries": [
   {
+   "code": "US",
+   "name": "United States",
+   "count": 2
+  },
+  {
    "code": "FR",
    "name": "France",
+   "count": 2
+  },
+  {
+   "code": "AU",
+   "name": "Australia",
+   "count": 1
+  },
+  {
+   "code": "CN",
+   "name": "China",
+   "count": 1
+  },
+  {
+   "code": "DE",
+   "name": "Germany",
    "count": 1
   }
  ]

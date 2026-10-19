@@ -239,6 +239,14 @@
   "country_code": "CN",
   "level": "city"
  },
+ "chengdu, china": {
+  "lat": 30.66,
+  "lon": 104.063,
+  "label": "Chengdu, China",
+  "country": "China",
+  "country_code": "CN",
+  "level": "city"
+ },
  "china": {
   "lat": 34.541,
   "lon": 108.924,
@@ -820,6 +828,14 @@
   "lat": 41.308,
   "lon": -72.925,
   "label": "New Haven, United States",
+  "country": "United States",
+  "country_code": "US",
+  "level": "city"
+ },
+ "new york": {
+  "lat": 40.713,
+  "lon": -74.006,
+  "label": "New York, United States",
   "country": "United States",
   "country_code": "US",
   "level": "city"

@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-10-12T11:58:24+00:00",
- "stargazers": 465,
- "with_location": 249,
- "located": 245,
+ "generated_at": "2026-10-19T09:53:35+00:00",
+ "stargazers": 471,
+ "with_location": 254,
+ "located": 250,
  "places": [
   {
    "lat": 48.853,
@@ -43,6 +43,13 @@
    "count": 7
   },
   {
+   "lat": -37.814,
+   "lon": 144.963,
+   "label": "Melbourne, Australia",
+   "country": "AU",
+   "count": 6
+  },
+  {
    "lat": 52.517,
    "lon": 13.395,
    "label": "Berlin, Germany",
@@ -50,10 +57,10 @@
    "count": 5
   },
   {
-   "lat": -37.814,
-   "lon": 144.963,
-   "label": "Melbourne, Australia",
-   "country": "AU",
+   "lat": 40.713,
+   "lon": -74.006,
+   "label": "New York, United States",
+   "country": "US",
    "count": 5
   },
   {
@@ -85,9 +92,9 @@
    "count": 4
   },
   {
-   "lat": 40.713,
-   "lon": -74.006,
-   "label": "New York, United States",
+   "lat": 37.444,
+   "lon": -122.16,
+   "label": "Palo Alto, United States",
    "country": "US",
    "count": 4
   },
@@ -111,13 +118,6 @@
    "label": "Lausanne, Switzerland",
    "country": "CH",
    "count": 4
-  },
-  {
-   "lat": 37.444,
-   "lon": -122.16,
-   "label": "Palo Alto, United States",
-   "country": "US",
-   "count": 3
   },
   {
    "lat": 31.231,
@@ -208,6 +208,13 @@
    "lon": -75.164,
    "label": "Philadelphia, United States",
    "country": "US",
+   "count": 2
+  },
+  {
+   "lat": 30.66,
+   "lon": 104.063,
+   "label": "Chengdu, China",
+   "country": "CN",
    "count": 2
   },
   {
@@ -382,13 +389,6 @@
    "lat": 23.129,
    "lon": 113.259,
    "label": "Guangzhou City, China",
-   "country": "CN",
-   "count": 1
-  },
-  {
-   "lat": 30.66,
-   "lon": 104.063,
-   "label": "Chengdu, China",
    "country": "CN",
    "count": 1
   },
@@ -810,22 +810,22 @@
   {
    "code": "US",
    "name": "United States",
-   "count": 57
+   "count": 59
   },
   {
    "code": "CN",
    "name": "China",
-   "count": 36
+   "count": 37
+  },
+  {
+   "code": "DE",
+   "name": "Germany",
+   "count": 27
   },
   {
    "code": "FR",
    "name": "France",
    "count": 27
-  },
-  {
-   "code": "DE",
-   "name": "Germany",
-   "count": 26
   },
   {
    "code": "GB",
@@ -840,7 +840,7 @@
   {
    "code": "AU",
    "name": "Australia",
-   "count": 8
+   "count": 9
   },
   {
    "code": "SE",
