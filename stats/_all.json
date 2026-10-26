@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-10-19T09:53:35+00:00",
- "stargazers": 471,
- "with_location": 254,
- "located": 250,
+ "generated_at": "2026-10-26T10:07:00+00:00",
+ "stargazers": 473,
+ "with_location": 256,
+ "located": 252,
  "places": [
   {
    "lat": 48.853,
@@ -271,6 +271,13 @@
    "lon": 77.209,
    "label": "New Delhi, India",
    "country": "IN",
+   "count": 1
+  },
+  {
+   "lat": 39.291,
+   "lon": -76.611,
+   "label": "Baltimore, United States",
+   "country": "US",
    "count": 1
   },
   {
@@ -810,12 +817,12 @@
   {
    "code": "US",
    "name": "United States",
-   "count": 59
+   "count": 60
   },
   {
    "code": "CN",
    "name": "China",
-   "count": 37
+   "count": 38
   },
   {
    "code": "DE",

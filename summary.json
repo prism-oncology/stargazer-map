@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-10-19T09:53:35+00:00",
+ "generated_at": "2026-10-26T10:07:00+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -21,9 +21,9 @@
    "description": "Graph-based foundation model for spatial transcriptomics data. Zero-shot spatial domain inference, batch-effect correction, and many other features.",
    "language": "Python",
    "archived": false,
-   "star_count": 162,
-   "stargazers": 162,
-   "located": 87,
+   "star_count": 163,
+   "stargazers": 163,
+   "located": 88,
    "error": null,
    "countries": 21
   },
@@ -33,9 +33,9 @@
    "description": "Biology-driven deep generative model for cell-type annotation in cytometry. Scyan is an interpretable model that also corrects batch-effect and can be used for debarcoding or population discovery.",
    "language": "Python",
    "archived": false,
-   "star_count": 47,
-   "stargazers": 46,
-   "located": 25,
+   "star_count": 48,
+   "stargazers": 47,
+   "located": 26,
    "error": null,
    "countries": 11
   },
@@ -88,6 +88,30 @@
    "countries": 1
   },
   {
+   "repo": "ALHENA-paper",
+   "url": "https://github.com/prism-oncology/ALHENA-paper",
+   "description": null,
+   "language": "Jupyter Notebook",
+   "archived": false,
+   "star_count": 0,
+   "stargazers": 0,
+   "located": 0,
+   "error": null,
+   "countries": 0
+  },
+  {
+   "repo": "ALHENA",
+   "url": "https://github.com/prism-oncology/ALHENA",
+   "description": "ALHENA, an H&E encoder distilled from transcriptomic foundation models for multi-scale slide analysis.",
+   "language": "Python",
+   "archived": false,
+   "star_count": 0,
+   "stargazers": 0,
+   "located": 0,
+   "error": null,
+   "countries": 0
+  },
+  {
    "repo": "workshops",
    "url": "https://github.com/prism-oncology/workshops",
    "description": "A shared place for our team's public workshops",
@@ -125,9 +149,9 @@
   }
  ],
  "overall": {
-  "stargazers": 471,
-  "with_location": 254,
-  "located": 250,
+  "stargazers": 473,
+  "with_location": 256,
+  "located": 252,
   "countries": 33
  }
 }

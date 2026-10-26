@@ -63,6 +63,14 @@
   "country_code": "US",
   "level": "city"
  },
+ "baltimore, md, usa": {
+  "lat": 39.291,
+  "lon": -76.611,
+  "label": "Baltimore, United States",
+  "country": "United States",
+  "country_code": "US",
+  "level": "city"
+ },
  "basel": {
   "lat": 47.558,
   "lon": 7.588,

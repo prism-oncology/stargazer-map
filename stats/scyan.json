@@ -4,12 +4,12 @@
  "description": "Biology-driven deep generative model for cell-type annotation in cytometry. Scyan is an interpretable model that also corrects batch-effect and can be used for debarcoding or population discovery.",
  "language": "Python",
  "archived": false,
- "star_count": 47,
- "generated_at": "2026-10-19T09:53:35+00:00",
+ "star_count": 48,
+ "generated_at": "2026-10-26T10:07:00+00:00",
  "error": null,
- "stargazers": 46,
- "with_location": 25,
- "located": 25,
+ "stargazers": 47,
+ "with_location": 26,
+ "located": 26,
  "places": [
   {
    "lat": -37.814,
@@ -31,6 +31,13 @@
    "label": "San Francisco, United States",
    "country": "US",
    "count": 2
+  },
+  {
+   "lat": 39.291,
+   "lon": -76.611,
+   "label": "Baltimore, United States",
+   "country": "US",
+   "count": 1
   },
   {
    "lat": 34.694,
@@ -126,13 +133,13 @@
  ],
  "countries": [
   {
-   "code": "DE",
-   "name": "Germany",
-   "count": 5
-  },
-  {
    "code": "US",
    "name": "United States",
+   "count": 6
+  },
+  {
+   "code": "DE",
+   "name": "Germany",
    "count": 5
   },
   {
