@@ -5,7 +5,7 @@
  "language": "Python",
  "archived": false,
  "star_count": 163,
- "generated_at": "2026-10-26T10:07:00+00:00",
+ "generated_at": "2026-10-27T09:05:39+00:00",
  "error": null,
  "stargazers": 163,
  "with_location": 91,
@@ -33,11 +33,27 @@
    "count": 4
   },
   {
+   "lat": 39.784,
+   "lon": -100.446,
+   "label": "United States",
+   "country": "US",
+   "count": 4,
+   "country_only": true
+  },
+  {
    "lat": 28.2,
    "lon": 112.972,
    "label": "Changsha, China",
    "country": "CN",
    "count": 3
+  },
+  {
+   "lat": 34.541,
+   "lon": 108.924,
+   "label": "China",
+   "country": "CN",
+   "count": 3,
+   "country_only": true
   },
   {
    "lat": 37.788,
@@ -68,6 +84,14 @@
    "count": 2
   },
   {
+   "lat": 46.799,
+   "lon": 8.232,
+   "label": "Switzerland",
+   "country": "CH",
+   "count": 2,
+   "country_only": true
+  },
+  {
    "lat": 47.374,
    "lon": 8.541,
    "label": "Zurich, Switzerland",
@@ -75,11 +99,27 @@
    "count": 2
   },
   {
+   "lat": 46.603,
+   "lon": 1.888,
+   "label": "France",
+   "country": "FR",
+   "count": 2,
+   "country_only": true
+  },
+  {
    "lat": 48.137,
    "lon": 11.575,
    "label": "Munich, Germany",
    "country": "DE",
    "count": 2
+  },
+  {
+   "lat": 59.675,
+   "lon": 14.521,
+   "label": "Sweden",
+   "country": "SE",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 52.085,
@@ -101,6 +141,14 @@
    "label": "New Delhi, India",
    "country": "IN",
    "count": 1
+  },
+  {
+   "lat": 51.164,
+   "lon": 10.448,
+   "label": "Germany",
+   "country": "DE",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 49.261,
@@ -131,6 +179,14 @@
    "count": 1
   },
   {
+   "lat": 52.243,
+   "lon": 5.634,
+   "label": "Netherlands",
+   "country": "NL",
+   "count": 1,
+   "country_only": true
+  },
+  {
    "lat": 47.558,
    "lon": 7.588,
    "label": "Basel, Switzerland",
@@ -143,6 +199,14 @@
    "label": "Chapel Hill, United States",
    "country": "US",
    "count": 1
+  },
+  {
+   "lat": 61.153,
+   "lon": 8.788,
+   "label": "Norway",
+   "country": "NO",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 31.231,
@@ -213,6 +277,14 @@
    "label": "Cambridge, United States",
    "country": "US",
    "count": 1
+  },
+  {
+   "lat": 38.995,
+   "lon": 21.988,
+   "label": "Greece",
+   "country": "GR",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 50.879,

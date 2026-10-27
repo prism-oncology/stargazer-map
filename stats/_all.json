@@ -2,7 +2,7 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-10-26T10:07:00+00:00",
+ "generated_at": "2026-10-27T09:05:39+00:00",
  "stargazers": 473,
  "with_location": 256,
  "located": 252,
@@ -34,6 +34,14 @@
    "label": "Munich, Germany",
    "country": "DE",
    "count": 7
+  },
+  {
+   "lat": 39.784,
+   "lon": -100.446,
+   "label": "United States",
+   "country": "US",
+   "count": 7,
+   "country_only": true
   },
   {
    "lat": 42.359,
@@ -69,6 +77,14 @@
    "label": "Zurich, Switzerland",
    "country": "CH",
    "count": 5
+  },
+  {
+   "lat": 34.541,
+   "lon": 108.924,
+   "label": "China",
+   "country": "CN",
+   "count": 5,
+   "country_only": true
   },
   {
    "lat": 47.604,
@@ -118,6 +134,14 @@
    "label": "Lausanne, Switzerland",
    "country": "CH",
    "count": 4
+  },
+  {
+   "lat": 51.164,
+   "lon": 10.448,
+   "label": "Germany",
+   "country": "DE",
+   "count": 3,
+   "country_only": true
   },
   {
    "lat": 31.231,
@@ -176,11 +200,35 @@
    "count": 2
   },
   {
+   "lat": 46.799,
+   "lon": 8.232,
+   "label": "Switzerland",
+   "country": "CH",
+   "count": 2,
+   "country_only": true
+  },
+  {
    "lat": 43.604,
    "lon": 1.444,
    "label": "Toulouse, France",
    "country": "FR",
    "count": 2
+  },
+  {
+   "lat": 52.243,
+   "lon": 5.634,
+   "label": "Netherlands",
+   "country": "NL",
+   "count": 2,
+   "country_only": true
+  },
+  {
+   "lat": 46.603,
+   "lon": 1.888,
+   "label": "France",
+   "country": "FR",
+   "count": 2,
+   "country_only": true
   },
   {
    "lat": 47.558,
@@ -246,6 +294,14 @@
    "count": 2
   },
   {
+   "lat": 59.675,
+   "lon": 14.521,
+   "label": "Sweden",
+   "country": "SE",
+   "count": 1,
+   "country_only": true
+  },
+  {
    "lat": 52.085,
    "lon": 0.179,
    "label": "South Cambridgeshire, United Kingdom",
@@ -300,6 +356,14 @@
    "label": "Sunnyvale, United States",
    "country": "US",
    "count": 1
+  },
+  {
+   "lat": 26.155,
+   "lon": 50.534,
+   "label": "Bahrain",
+   "country": "BH",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 39.303,
@@ -372,6 +436,14 @@
    "count": 1
   },
   {
+   "lat": 61.153,
+   "lon": 8.788,
+   "label": "Norway",
+   "country": "NO",
+   "count": 1,
+   "country_only": true
+  },
+  {
    "lat": 43.643,
    "lon": -72.252,
    "label": "Lebanon, United States",
@@ -391,6 +463,14 @@
    "label": "Tokyo, Japan",
    "country": "JP",
    "count": 1
+  },
+  {
+   "lat": 46.12,
+   "lon": 14.815,
+   "label": "Slovenia",
+   "country": "SI",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 23.129,
@@ -498,6 +578,14 @@
    "count": 1
   },
   {
+   "lat": 38.995,
+   "lon": 21.988,
+   "label": "Greece",
+   "country": "GR",
+   "count": 1,
+   "country_only": true
+  },
+  {
    "lat": 51.966,
    "lon": 5.666,
    "label": "Wageningen, Netherlands",
@@ -573,6 +661,14 @@
    "label": "City of Edinburgh, United Kingdom",
    "country": "GB",
    "count": 1
+  },
+  {
+   "lat": 55.67,
+   "lon": 10.333,
+   "label": "Denmark",
+   "country": "DK",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 49.589,
@@ -657,6 +753,14 @@
    "label": "Province of Padua, Italy",
    "country": "IT",
    "count": 1
+  },
+  {
+   "lat": 36.575,
+   "lon": 139.239,
+   "label": "Japan",
+   "country": "JP",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 59.859,
@@ -748,6 +852,14 @@
    "label": "Mars, France",
    "country": "FR",
    "count": 1
+  },
+  {
+   "lat": 0.279,
+   "lon": 37.516,
+   "label": "Kenya",
+   "country": "KE",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 30.618,

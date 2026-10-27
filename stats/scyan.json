@@ -5,12 +5,20 @@
  "language": "Python",
  "archived": false,
  "star_count": 48,
- "generated_at": "2026-10-26T10:07:00+00:00",
+ "generated_at": "2026-10-27T09:05:39+00:00",
  "error": null,
  "stargazers": 47,
  "with_location": 26,
  "located": 26,
  "places": [
+  {
+   "lat": 39.784,
+   "lon": -100.446,
+   "label": "United States",
+   "country": "US",
+   "count": 2,
+   "country_only": true
+  },
   {
    "lat": -37.814,
    "lon": 144.963,
@@ -80,6 +88,14 @@
    "label": "Oxford, United Kingdom",
    "country": "GB",
    "count": 1
+  },
+  {
+   "lat": 38.995,
+   "lon": 21.988,
+   "label": "Greece",
+   "country": "GR",
+   "count": 1,
+   "country_only": true
   },
   {
    "lat": 50.847,
