@@ -110,7 +110,15 @@ def test_build_logo(tmp_path):
     for page in ("index.html", "tool.html"):
         html = (site / page).read_text(encoding="utf-8")
         assert '<img class="logo" src="assets/logo.png" alt="me">' in html
-    assert 'class="logo"' not in (build(data, tmp_path / "site") / "index.html").read_text()
+    # Without one, every page shows the owner's GitHub avatar.
+    avatar = (
+        '<img class="logo avatar" src="https://avatars.githubusercontent.com/me?s=400" alt="me"'
+        ' crossorigin="anonymous">'
+    )
+    for page in ("index.html", "tool.html"):
+        html = (build(data, tmp_path / "site") / page).read_text(encoding="utf-8")
+        # ...linking to the owner on GitHub.
+        assert f'<a class="logo-link" href="https://github.com/me">{avatar}</a>' in html
     for bad in (tmp_path / "missing.png", data / "summary.json"):
         with pytest.raises(ValueError):
             build(data, tmp_path / "site", logo=bad)

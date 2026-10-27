@@ -19,10 +19,13 @@ border:1px solid var(--line);border-radius:8px;cursor:pointer}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
 .theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .theme-toggle svg{width:20px;height:20px}
-/* Optional org logo (build --logo). A white plate keeps logos drawn for white
-   backgrounds readable in dark mode. */
+/* Owner's GitHub avatar, or a logo file (build --logo). A white plate keeps logos
+   drawn for white backgrounds readable in dark mode; avatars bring their own. */
 .logo{display:block;height:56px;width:auto;max-width:calc(100% - 52px);margin-bottom:14px;
 padding:6px 10px;background:#fff;border:1px solid var(--line);border-radius:8px}
+.logo.avatar{width:140px;height:80px;padding:0;border-radius:14px}
+.logo-link{display:inline-block;cursor:pointer}
+.logo-link:hover .logo{border-color:var(--accent)}
 header .crumb{font-size:13px;color:var(--muted)}
 header .crumb a,footer a{color:var(--title)}
 h1{margin:4px 0 4px;font-size:28px;letter-spacing:-.01em}

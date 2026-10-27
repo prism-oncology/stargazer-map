@@ -77,7 +77,10 @@ def parser() -> argparse.ArgumentParser:
     b.add_argument(
         "--logo",
         default=os.environ.get("LOGO") or None,
-        help="image (svg/png/jpg/webp) shown at the top of every page (default: none)",
+        help=(
+            "image (svg/png/jpg/webp) shown at the top of every page "
+            "(default: the owner's GitHub avatar)"
+        ),
     )
     return p
 

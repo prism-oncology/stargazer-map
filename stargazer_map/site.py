@@ -3,7 +3,8 @@
 index.html          overview: org-wide map + one card per repo
 <repo>.html         one map page per repository
 data/*.json         the aggregated stats (handy for other tools)
-assets/             style.css, theme.js, map.js, countries.geojson (from stargazer_map/assets/)
+assets/             style.css, theme.js, logo.js, map.js, countries.geojson
+                    (copied from stargazer_map/assets/)
 """
 
 from __future__ import annotations
@@ -11,12 +12,13 @@ from __future__ import annotations
 import html
 import json
 import shutil
+import urllib.parse
 from collections.abc import Iterable
 from importlib import resources
 from pathlib import Path
 
 LEAFLET = "https://unpkg.com/leaflet@1.9.4/dist"
-ASSETS = ("style.css", "theme.js", "map.js", "countries.geojson")
+ASSETS = ("style.css", "theme.js", "logo.js", "map.js", "countries.geojson")
 LOGO_TYPES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
 # Map layers a viewer can toggle: countries coloured by stargazer count, and one
 # bubble per place sized by count.
@@ -47,6 +49,7 @@ def page(
     generated: str,
     logo: str = "",
 ) -> str:
+    crumb = f'<div class="crumb">{crumb}</div>' if crumb else ""
     map_block = ""
     if map_data is not None:
         data = json.dumps(map_data, ensure_ascii=False).replace("</", "<\\/")
@@ -64,13 +67,14 @@ def page(
 {THEME_INIT}</head>
 <body>
 <header><button id="theme-toggle" class="theme-toggle" type="button"></button>{logo}
-<div class="crumb">{crumb}</div><h1>{heading}</h1><p class="sub">{sub}</p></header>
+{crumb}<h1>{heading}</h1><p class="sub">{sub}</p></header>
 <main>{body}</main>
 <footer>Updated {esc(generated[:16].replace("T", " "))} UTC ·
 Locations are self-reported on GitHub profiles, geocoded with
 <a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a> ·
 <a href="https://github.com/{esc(repository)}">source</a></footer>
 <script src="assets/theme.js"></script>
+<script src="assets/logo.js"></script>
 {map_block}
 </body></html>
 """
@@ -154,8 +158,8 @@ def build(
 
     `layers` are the map layers shown when a page opens (any of LAYERS); viewers can
     toggle each one on the map. Repos with fewer than `min_stars` stars get no page
-    or card; their stargazers still count on the overview map. `logo` is an image
-    file shown at the top of every page.
+    or card; their stargazers still count on the overview map. The top of every page
+    shows the owner's GitHub avatar, or `logo` (an image file) instead.
     """
     data_dir, site_dir = Path(data_dir), Path(site_dir)
     layers = list(dict.fromkeys(layers))
@@ -180,11 +184,21 @@ def build(
     for f in (data_dir / "stats").glob("*.json"):
         shutil.copy(f, site_dir / "data" / f.name)
     shutil.copy(data_dir / "summary.json", site_dir / "data" / "summary.json")
-    logo_html = ""
     if logo:
         name = f"logo{logo.suffix.lower()}"
         shutil.copy(logo, site_dir / "assets" / name)
         logo_html = f'<img class="logo" src="assets/{name}" alt="{esc(org)}">'
+    else:
+        # Loaded by the browser, like the map tiles, so the build stays offline. This
+        # host (unlike github.com/<org>.png, a redirect) sends CORS headers, which
+        # logo.js needs to crop the avatar's blank margins.
+        avatar = f"https://avatars.githubusercontent.com/{urllib.parse.quote(org)}?s=400"
+        logo_html = (
+            f'<img class="logo avatar" src="{esc(avatar)}" alt="{esc(org)}"'
+            ' crossorigin="anonymous">'
+        )
+    # The logo links to the owner on GitHub, so the index needs no crumb for it.
+    logo_html = f'<a class="logo-link" href="https://github.com/{esc(org)}">{logo_html}</a>'
 
     # Per-repo pages
     for r in repos:
@@ -231,7 +245,7 @@ def build(
     (site_dir / "index.html").write_text(
         page(
             f"{org} star maps",
-            f'<a href="https://github.com/{esc(org)}">github.com/{esc(org)}</a>',
+            "",
             f"Where {esc('PRISM Institute' if org == 'prism-oncology' else org)} stargazers are",
             "One map per repository, rebuilt weekly from public GitHub profile locations.",
             body,
