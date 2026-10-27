@@ -29,7 +29,7 @@ STARGAZERS_QUERY = """
 query($owner: String!, $name: String!, $endCursor: String) {
   repository(owner: $owner, name: $name) {
     stargazers(first: 100, after: $endCursor) {
-      nodes { login location }
+      edges { starredAt node { login location } }
       pageInfo { hasNextPage endCursor }
     }
   }
@@ -64,8 +64,12 @@ def list_repos(org: str, include_forks: bool, include_archived: bool) -> list[di
 
 
 def list_stargazers(owner: str, repo: str) -> list[dict]:
+    """[{login, location, starredAt}] for each current stargazer of owner/repo."""
     return gh_graphql_paginate(
-        STARGAZERS_QUERY, ".data.repository.stargazers.nodes[]", owner=owner, name=repo
+        STARGAZERS_QUERY,
+        ".data.repository.stargazers.edges[] | .node + {starredAt}",
+        owner=owner,
+        name=repo,
     )
 
 
