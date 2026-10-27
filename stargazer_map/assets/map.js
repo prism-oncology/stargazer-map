@@ -66,7 +66,8 @@
         weight:1.5,fillColor:accent,fillOpacity:.45}).addTo(bubbles);
       if (g.members.length === 1) {
         var p = g.members[0];
-        var txt = '<b>'+escapeHtml(p.label)+'</b><br>'+plural(p.count);
+        var txt = '<b>'+escapeHtml(p.label)+'</b><br>'+plural(p.count)
+          + (p.country_only ? ' &middot; no city given' : '');
         if (p.logins) txt += '<br>' + p.logins.map(function(l){
           return '<a href="https://github.com/'+encodeURIComponent(l)+'" target="_blank" rel="noopener">@'+escapeHtml(l)+'</a>';
         }).join(', ');

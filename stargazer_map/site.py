@@ -114,7 +114,9 @@ def ranking_table(rows: list[dict], label_key: str, scale: str, limit: int = 15)
 
 def map_and_rankings(stats: dict) -> str:
     countries = ranking_table(stats.get("countries") or [], "name", "countries")
-    places = ranking_table(stats.get("places") or [], "label", "places")
+    # A whole-country bubble ("France") is no place to rank.
+    places = [p for p in stats.get("places") or [] if not p.get("country_only")]
+    places = ranking_table(places, "label", "places")
     return (
         '<div id="map"></div><div class="cols">'
         f"<section><h2>Top countries</h2>{countries}</section>"

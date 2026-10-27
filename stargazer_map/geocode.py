@@ -114,6 +114,11 @@ def is_place(geo: dict) -> bool:
     return level not in AREA_LEVELS
 
 
+def is_country_only(geo: dict) -> bool:
+    """A result that names a country and nothing smaller ("USA", "France")."""
+    return geo["label"] == geo.get("country") and not is_place(geo)
+
+
 def geocode_all(
     locations: set[str], cache: dict, cache_path: Path, max_new: int, user_agent: str
 ) -> None:

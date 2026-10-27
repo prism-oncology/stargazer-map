@@ -114,3 +114,16 @@ def test_build_logo(tmp_path):
     for bad in (tmp_path / "missing.png", data / "summary.json"):
         with pytest.raises(ValueError):
             build(data, tmp_path / "site", logo=bad)
+
+
+def test_country_only_bubble_is_not_a_top_place(tmp_path):
+    data = make_data(tmp_path)
+    france = {"lat": 46.603, "lon": 1.888, "label": "France", "country": "FR", "count": 3,
+              "country_only": True}  # fmt: skip
+    stats = json.loads((data / "stats" / "tool.json").read_text(encoding="utf-8"))
+    stats["places"].insert(0, france)
+    write(data / "stats" / "tool.json", stats)
+    tool = (build(data, tmp_path / "site") / "tool.html").read_text(encoding="utf-8")
+    assert france in embedded_map_data(tool)["places"]  # drawn on the map...
+    places = tool.split('<table data-scale="places">')[1].split("</table>")[0]
+    assert "<td>France</td>" not in places  # ...but not ranked

@@ -23,8 +23,9 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
 
     Places are grouped by label, so spellings that geocode to the same city a few
     hundred metres apart ("San Francisco", "Bay Area") make one bubble, drawn at the
-    most common of their coordinates. Country- or state-only locations count toward
-    `located` and `countries` but are not places.
+    most common of their coordinates. Country-only locations ("France") get a bubble
+    at Nominatim's centre of the country, marked `country_only` so they stay out of
+    "Top places". State-only ones count toward `located` and `countries` only.
     """
     places: dict[str, dict] = {}
     countries: Counter = Counter()
@@ -40,7 +41,8 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
         if geo.get("country_code"):
             countries[geo["country_code"]] += 1
             country_names[geo["country_code"]] = geo.get("country") or geo["country_code"]
-        if not geocode.is_place(geo):
+        country_only = geocode.is_country_only(geo)
+        if not country_only and not geocode.is_place(geo):
             continue
         place = places.setdefault(
             geo["label"],
@@ -49,7 +51,8 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
                 "country": geo.get("country_code"),
                 "count": 0,
                 "at": Counter(),
-            },
+            }
+            | ({"country_only": True} if country_only else {}),
         )
         place["count"] += 1
         place["at"][(geo["lat"], geo["lon"])] += 1

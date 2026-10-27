@@ -130,7 +130,7 @@ def test_fetch_fails_when_token_cannot_read_any_repo(tmp_path, monkeypatch):
     assert not (tmp_path / "data" / "summary.json").exists()
 
 
-def test_aggregate_skips_country_and_state_only_locations():
+def test_aggregate_country_and_state_only_locations():
     california = {"lat": 36.7, "lon": -118.8, "label": "California, United States",
                   "country": "United States", "country_code": "US", "level": "state"}  # fmt: skip
     singapore = {"lat": 1.357, "lon": 103.819, "label": "Singapore", "country": "Singapore",
@@ -145,16 +145,21 @@ def test_aggregate_skips_country_and_state_only_locations():
     assert stats["located"] == 5
     assert {c["code"]: c["count"] for c in stats["countries"]} == {
         "US": 2, "SG": 1, "FR": 1, "CN": 1}  # fmt: skip
-    # ...but only real places get a bubble: a city-state, and a city Nominatim calls a state.
-    assert sorted(p["label"] for p in stats["places"]) == [
-        "Paris, France", "Shanghai, China", "Singapore"]  # fmt: skip
+    # ...a city-state and a city Nominatim calls a state are places, a bare country gets
+    # a bubble at its centre, and a state gets none.
+    assert {p["label"]: p.get("country_only", False) for p in stats["places"]} == {
+        "Paris, France": False, "Shanghai, China": False, "Singapore": False,
+        "United States": True}  # fmt: skip
+    usa = next(p for p in stats["places"] if p["label"] == "United States")
+    assert (usa["lat"], usa["lon"]) == (USA["lat"], USA["lon"])
 
 
 def test_aggregate_legacy_cache_entries():
     legacy_usa = {k: v for k, v in USA.items() if k != "level"}
     legacy_paris = {k: v for k, v in PARIS.items() if k != "level"}
     stats = aggregate({"a": "usa", "b": "paris"}, {"usa": legacy_usa, "paris": legacy_paris})
-    assert [p["label"] for p in stats["places"]] == ["Paris, France"]
+    assert [(p["label"], p.get("country_only")) for p in stats["places"]] == [
+        ("United States", True), ("Paris, France", None)]  # fmt: skip
 
 
 def test_aggregate_merges_places_with_the_same_label():
