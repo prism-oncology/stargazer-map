@@ -78,6 +78,21 @@ def test_build(tmp_path):
     }
     countries = json.loads((site / "assets" / "countries.geojson").read_text(encoding="utf-8"))
     assert {"FR", "SG", "BH"} <= {f["id"] for f in countries["features"]}
+    # Every page has the sidebar, with this page marked.
+    assert '<a href="tool.html" class="active" aria-current="page">tool' in tool
+    assert '<a href="docs/how-it-works.html">How it works</a>' in index
+
+
+def test_build_docs(tmp_path):
+    site = build(make_data(tmp_path), tmp_path / "site", min_stars=1)
+    doc = (site / "docs" / "how-it-works.html").read_text(encoding="utf-8")
+    # One level down: site links climb back to the root.
+    assert 'href="../assets/style.css"' in doc and 'href="../tool.html"' in doc
+    assert 'id="map-data"' not in doc
+    # Template values are filled in, and the page's sections are listed under its entry.
+    assert 'href="https://github.com/me">me</a>' in doc and "fewer than 1 stars" in doc
+    assert "$" not in doc.split("<main>")[1]
+    assert '<li><a href="#privacy">Privacy</a></li>' in doc
 
 
 def test_build_layers(tmp_path):

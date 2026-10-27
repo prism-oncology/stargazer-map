@@ -1,0 +1,37 @@
+<p>These maps are rebuilt every week from public GitHub data. Nothing is collected from
+visitors of this site.</p>
+
+<h2 id="pipeline">From stars to bubbles</h2>
+<ol>
+<li><b>List the repositories</b> of <a href="https://github.com/$org">$org</a>: every
+public repository (by default without forks).$min_stars_note</li>
+<li><b>List their stargazers</b> with the GitHub API, together with the free-text
+<i>location</i> field of each stargazer's profile.</li>
+<li><b>Geocode</b> each distinct location with
+<a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>. Locations are
+normalised first (emoji removed, lowercased), so "Paris 🇫🇷" and "paris" are one
+lookup. Results are cached, so a location is only looked up once.</li>
+<li><b>Aggregate</b> stargazers by country and by place, and write the result as JSON
+(see <a href="data.html">Data files</a>).</li>
+<li><b>Render</b> this static site from that JSON and publish it on GitHub Pages.</li>
+</ol>
+
+<h2 id="limits">What the maps can't tell you</h2>
+<ul>
+<li><b>Locations are self-reported.</b> Many profiles have none, some are jokes
+("Earth", "localhost"), and some are out of date. Only stargazers whose location could
+be found are on the map.</li>
+<li><b>Names can be ambiguous.</b> Nominatim picks the most likely match, so a
+"Cambridge" can land in England when its owner meant Massachusetts.</li>
+<li><b>Stars aren't users.</b> A star is a bookmark or a thank-you. It doesn't mean
+someone uses the software.</li>
+<li><b>Geocoding is rate limited</b> to about one request per second, so a run geocodes a
+limited number of new locations. Large repositories can take a few weeks to fill in.</li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+<p>Only public profile data is used. The published files hold aggregated counts per
+country and per place. Usernames are left out unless the site owner turns them on.</p>
+<p>The map tiles come from Esri and the map library from unpkg, so your browser contacts
+those servers when a page loads. Your light/dark and layer choices are saved in your
+browser's local storage and never leave it.</p>

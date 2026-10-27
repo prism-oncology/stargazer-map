@@ -2,16 +2,22 @@
 
 index.html          overview: org-wide map + one card per repo
 <repo>.html         one map page per repository
+docs/<slug>.html    documentation (from the stargazer_map/docs/ fragments)
 data/*.json         the aggregated stats (handy for other tools)
 assets/             style.css, theme.js, logo.js, map.js, countries.geojson
                     (copied from stargazer_map/assets/)
+
+Every page has the same frame: a top bar (logo, site name, source link, theme
+toggle) and a left sidebar listing the maps and the docs, a drawer on phones.
 """
 
 from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
+import string
 import urllib.parse
 from collections.abc import Iterable
 from importlib import resources
@@ -23,6 +29,28 @@ LOGO_TYPES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
 # Map layers a viewer can toggle: countries coloured by stargazer count, and one
 # bubble per place sized by count.
 LAYERS = ("countries", "bubbles")
+# Documentation pages: stargazer_map/docs/<slug>.html fragments, in sidebar order.
+# They are string.Template text: $org, $repository and $min_stars_note are filled in.
+DOCS = (
+    ("reading-the-maps", "Reading the maps"),
+    ("how-it-works", "How it works"),
+    ("make-your-own", "Make your own"),
+    ("data", "Data files"),
+)
+MENU_ICON = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"'
+    ' stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>'
+)
+GITHUB_ICON = (
+    '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3'
+    ".58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.5"
+    "3-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.7"
+    "2 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82"
+    "-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .2"
+    "7 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.7"
+    "5-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 "
+    '0016 8c0-4.42-3.58-8-8-8z"/></svg>'
+)
 # Applies the visitor's saved light/dark choice before first paint (see theme.js).
 THEME_INIT = (
     "<script>try{var t=localStorage.getItem('stargazer-map:theme');"
@@ -38,46 +66,102 @@ def fmt(n) -> str:
     return f"{n:,}" if isinstance(n, int) else "–"
 
 
+def sidebar(org: str, repos: list[dict], current: str, root: str, sections=()) -> str:
+    """Left navigation. `current` is the href of this page (relative to the site root);
+    `sections` are this page's (id, title) headings, listed under its entry."""
+
+    def link(href, label, extra=""):
+        active = href == current
+        cls = ' class="active" aria-current="page"' if active else ""
+        sub = ""
+        if active and sections:
+            sub = "<ul>" + "".join(f'<li><a href="#{esc(i)}">{t}</a></li>' for i, t in sections)
+            sub += "</ul>"
+        return f'<li><a href="{root}{esc(href)}"{cls}>{label}{extra}</a>{sub}</li>'
+
+    maps = link("index.html", "All repositories")
+    maps += "".join(
+        link(
+            f"{r['repo']}.html",
+            esc(r["repo"]),
+            f'<span class="count">{fmt(r.get("star_count"))}</span>',
+        )
+        for r in sorted(repos, key=lambda r: -(r.get("star_count") or 0))
+    )
+    docs = "".join(link(f"docs/{slug}.html", esc(title)) for slug, title in DOCS)
+    return (
+        '<nav class="sidebar" aria-label="Site">'
+        f'<p class="nav-title">Maps</p><ul>{maps}</ul>'
+        f'<p class="nav-title">Documentation</p><ul>{docs}</ul></nav>'
+    )
+
+
 def page(
     title: str,
-    crumb: str,
     heading: str,
     sub: str,
     body: str,
-    map_data: dict | None,
+    *,
+    site_name: str,
+    nav: str,
     repository: str,
     generated: str,
     logo: str = "",
+    crumb: str = "",
+    map_data: dict | None = None,
+    root: str = "",
 ) -> str:
+    """One page in the site frame. `root` is the path from this page to the site root
+    ("" or "../"), prefixed to every site-relative link."""
     crumb = f'<div class="crumb">{crumb}</div>' if crumb else ""
+    sub = f'<p class="sub">{sub}</p>' if sub else ""
     map_block = ""
     if map_data is not None:
         data = json.dumps(map_data, ensure_ascii=False).replace("</", "<\\/")
         map_block = (
             f'<script id="map-data" type="application/json">{data}</script>'
             f'<script src="{LEAFLET}/leaflet.js"></script>'
-            '<script src="assets/map.js"></script>'
+            f'<script src="{root}assets/map.js"></script>'
         )
+    leaflet_css = f'<link rel="stylesheet" href="{LEAFLET}/leaflet.css">\n' if map_data else ""
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
-<link rel="stylesheet" href="{LEAFLET}/leaflet.css">
-<link rel="stylesheet" href="assets/style.css">
+{leaflet_css}<link rel="stylesheet" href="{root}assets/style.css">
 {THEME_INIT}</head>
 <body>
-<header><button id="theme-toggle" class="theme-toggle" type="button"></button>{logo}
-{crumb}<h1>{heading}</h1><p class="sub">{sub}</p></header>
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+<header class="topbar">
+<label for="nav-toggle" class="icon-btn menu-btn" aria-label="Menu" title="Menu">{MENU_ICON}</label>
+{logo}<a class="site-name" href="{root}index.html">{esc(site_name)}</a>
+<a class="source" href="https://github.com/{esc(repository)}">{GITHUB_ICON}<span>{esc(repository)}</span></a>
+<button id="theme-toggle" class="icon-btn theme-toggle" type="button"></button>
+</header>
+<div class="layout">
+<label for="nav-toggle" class="scrim" aria-hidden="true"></label>
+{nav}
+<div class="content">
+<div class="page-head">{crumb}<h1>{heading}</h1>{sub}</div>
 <main>{body}</main>
 <footer>Updated {esc(generated[:16].replace("T", " "))} UTC ·
 Locations are self-reported on GitHub profiles, geocoded with
 <a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a> ·
 <a href="https://github.com/{esc(repository)}">source</a></footer>
-<script src="assets/theme.js"></script>
-<script src="assets/logo.js"></script>
+</div>
+</div>
+<script src="{root}assets/theme.js"></script>
+<script src="{root}assets/logo.js"></script>
 {map_block}
 </body></html>
 """
+
+
+def doc_page(slug: str, values: dict) -> tuple[str, list[tuple[str, str]]]:
+    """A docs fragment with `values` filled in, and its (id, title) h2 sections."""
+    text = (resources.files("stargazer_map") / "docs" / f"{slug}.html").read_text(encoding="utf-8")
+    body = string.Template(text).safe_substitute(values)
+    return body, re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
 
 
 def kpis(stats: dict, star_count=None) -> str:
@@ -187,40 +271,54 @@ def build(
     if logo:
         name = f"logo{logo.suffix.lower()}"
         shutil.copy(logo, site_dir / "assets" / name)
-        logo_html = f'<img class="logo" src="assets/{name}" alt="{esc(org)}">'
+        logo_img = f'<img class="logo" src="{{root}}assets/{name}" alt="{esc(org)}">'
     else:
         # Loaded by the browser, like the map tiles, so the build stays offline. This
         # host (unlike github.com/<org>.png, a redirect) sends CORS headers, which
         # logo.js needs to crop the avatar's blank margins.
         avatar = f"https://avatars.githubusercontent.com/{urllib.parse.quote(org)}?s=400"
-        logo_html = (
+        logo_img = (
             f'<img class="logo avatar" src="{esc(avatar)}" alt="{esc(org)}"'
             ' crossorigin="anonymous">'
         )
     # The logo links to the owner on GitHub, so the index needs no crumb for it.
-    logo_html = f'<a class="logo-link" href="https://github.com/{esc(org)}">{logo_html}</a>'
+    logo_img = f'<a class="logo-link" href="https://github.com/{esc(org)}">{logo_img}</a>'
+    site_name = f"{org} star maps"
+
+    def write(href: str, title, heading, sub, body, sections=(), **kw):
+        root = "../" * href.count("/")
+        path = site_dir / href
+        path.parent.mkdir(exist_ok=True)
+        html_ = page(
+            title,
+            heading,
+            sub,
+            body,
+            site_name=site_name,
+            nav=sidebar(org, repos, href, root, sections),
+            repository=repository,
+            generated=generated,
+            logo=logo_img.replace("{root}", root),
+            root=root,
+            **kw,
+        )
+        path.write_text(html_, encoding="utf-8")
 
     # Per-repo pages
     for r in repos:
         stats_file = data_dir / "stats" / f"{r['repo']}.json"
         stats = json.loads(stats_file.read_text(encoding="utf-8"))
-        crumb = f'<a href="index.html">{esc(org)}</a> / {esc(r["repo"])}'
         heading = f'<a href="{esc(r["url"])}" style="color:inherit">{esc(r["repo"])}</a>'
         if r.get("archived"):
             heading += '<span class="badge">archived</span>'
-        (site_dir / f"{r['repo']}.html").write_text(
-            page(
-                f"{r['repo']} stargazers",
-                crumb,
-                heading,
-                esc(r.get("description") or "Where this repository's stargazers are."),
-                detail_body(stats, r.get("star_count")),
-                map_data(stats, layers),
-                repository,
-                generated,
-                logo_html,
-            ),
-            encoding="utf-8",
+        write(
+            f"{r['repo']}.html",
+            f"{r['repo']} stargazers",
+            heading,
+            esc(r.get("description") or "Where this repository's stargazers are."),
+            detail_body(stats, r.get("star_count")),
+            crumb=f'<a href="index.html">{esc(org)}</a> / {esc(r["repo"])}',
+            map_data=map_data(stats, layers),
         )
 
     # Index page
@@ -242,20 +340,38 @@ def build(
         + '<h2 style="margin-top:32px">Repositories</h2>'
         + f'<div class="grid">{"".join(cards)}</div>'
     )
-    (site_dir / "index.html").write_text(
-        page(
-            f"{org} star maps",
-            "",
-            f"Where {esc('PRISM Institute' if org == 'prism-oncology' else org)} stargazers are",
-            "One map per repository, rebuilt weekly from public GitHub profile locations.",
-            body,
-            map_data(overall, layers),
-            repository,
-            generated,
-            logo_html,
-        ),
-        encoding="utf-8",
+    write(
+        "index.html",
+        site_name,
+        f"Where {esc('PRISM Institute' if org == 'prism-oncology' else org)} stargazers are",
+        "One map per repository, rebuilt weekly from public GitHub profile locations.",
+        body,
+        map_data=map_data(overall, layers),
     )
+
+    # Documentation
+    values = {
+        "org": esc(org),
+        "repository": esc(repository),
+        "min_stars_note": (
+            f" Repositories with fewer than {min_stars} stars get no page of their own, but"
+            " their stargazers still count on the overview map."
+            if min_stars > 0
+            else ""
+        ),
+    }
+    for slug, title in DOCS:
+        body, sections = doc_page(slug, values)
+        write(
+            f"docs/{slug}.html",
+            f"{title} · {site_name}",
+            esc(title),
+            "",
+            f'<article class="prose">{body}</article>',
+            sections,
+            crumb=f'<a href="../index.html">{esc(org)}</a> / Documentation',
+        )
+
     (site_dir / ".nojekyll").write_text("")
-    print(f"Built {len(repos) + 1} pages in {site_dir}")
+    print(f"Built {len(repos) + 1 + len(DOCS)} pages in {site_dir}")
     return site_dir

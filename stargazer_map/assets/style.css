@@ -1,36 +1,105 @@
 :root{--bg:#f7f7f5;--card:#fff;--fg:#1d1d1f;--muted:#6b6b70;--line:#e4e4e1;
---accent:#c2410c;--accent-soft:rgba(194,65,12,.18);--warn:#b45309;--title:#184f95}
+--accent:#c2410c;--accent-soft:rgba(194,65,12,.18);--warn:#b45309;--title:#184f95;
+--primary:#184f95;--on-primary:#fff;--hover:rgba(24,79,149,.08);--code:#f0f0ed}
 /* Dark: chosen with the header toggle (data-theme on <html>), or the OS setting
    when the visitor hasn't chosen. */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141416;--card:#1d1d20;
 --fg:#ececee;--muted:#9a9aa1;--line:#2c2c31;--accent:#fb923c;--accent-soft:rgba(251,146,60,.22);
---warn:#fbbf24;--title:#86b6ef;color-scheme:dark}}
+--warn:#fbbf24;--title:#86b6ef;--primary:#1b2433;--on-primary:#ececee;
+--hover:rgba(134,182,239,.1);--code:#26262b;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#141416;--card:#1d1d20;--fg:#ececee;--muted:#9a9aa1;--line:#2c2c31;
---accent:#fb923c;--accent-soft:rgba(251,146,60,.22);--warn:#fbbf24;--title:#86b6ef;color-scheme:dark}
+--accent:#fb923c;--accent-soft:rgba(251,146,60,.22);--warn:#fbbf24;--title:#86b6ef;
+--primary:#1b2433;--on-primary:#ececee;--hover:rgba(134,182,239,.1);--code:#26262b;
+color-scheme:dark}
 *{box-sizing:border-box}
+html{scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--fg);
-font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-header{padding:28px 16px 8px;max-width:1100px;margin:auto;position:relative}
-header .crumb{padding-right:48px}
-.theme-toggle{position:absolute;top:20px;right:16px;width:36px;height:36px;padding:0;
-display:grid;place-items:center;background:var(--card);color:var(--fg);
-border:1px solid var(--line);border-radius:8px;cursor:pointer}
-.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.theme-toggle svg{width:20px;height:20px}
+
+/* ---- Top bar: logo, site name, source link, theme toggle ---------------- */
+.topbar{position:sticky;top:0;z-index:1100;height:56px;display:flex;align-items:center;
+gap:12px;padding:0 16px;background:var(--primary);color:var(--on-primary);
+box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.site-name{color:inherit;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;
+text-overflow:ellipsis;margin-right:auto}
+.site-name:hover{text-decoration:none;opacity:.85}
+.source{display:flex;align-items:center;gap:8px;color:inherit;font-size:13px;opacity:.9;
+white-space:nowrap}
+.source:hover{opacity:1;text-decoration:none}
+.source svg{width:20px;height:20px;flex:none}
+.icon-btn{width:36px;height:36px;padding:0;flex:none;display:grid;place-items:center;
+background:none;color:inherit;border:0;border-radius:50%;cursor:pointer}
+.icon-btn:hover{background:rgba(255,255,255,.14)}
+.icon-btn:focus-visible{outline:2px solid currentColor;outline-offset:1px}
+.icon-btn svg{width:22px;height:22px}
 /* Owner's GitHub avatar, or a logo file (build --logo). A white plate keeps logos
-   drawn for white backgrounds readable in dark mode; avatars bring their own. */
-.logo{display:block;height:56px;width:auto;max-width:calc(100% - 52px);margin-bottom:14px;
-padding:6px 10px;background:#fff;border:1px solid var(--line);border-radius:8px}
-.logo.avatar{width:140px;height:80px;padding:0;border-radius:14px}
-.logo-link{display:inline-block;cursor:pointer}
-.logo-link:hover .logo{border-color:var(--accent)}
-header .crumb{font-size:13px;color:var(--muted)}
-header .crumb a,footer a{color:var(--title)}
-h1{margin:4px 0 4px;font-size:28px;letter-spacing:-.01em}
+   drawn for white backgrounds readable on the bar and in dark mode. */
+.logo-link{display:flex;flex:none;cursor:pointer}
+.logo{display:block;height:36px;width:auto;max-width:140px;padding:3px 6px;background:#fff;
+border-radius:6px;object-fit:contain}
+.logo.avatar{padding:0}
+.logo-link:hover .logo{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+
+/* ---- Sidebar + content ---------------------------------------------------- */
+.layout{display:flex;max-width:1440px;margin:auto}
+.sidebar{flex:none;width:250px;position:sticky;top:56px;align-self:flex-start;
+max-height:calc(100vh - 56px);overflow-y:auto;padding:20px 12px 32px 16px;font-size:14px}
+.nav-title{margin:18px 8px 6px;font-size:12px;font-weight:600;color:var(--muted);
+text-transform:uppercase;letter-spacing:.05em}
+.nav-title:first-child{margin-top:0}
+.sidebar ul{list-style:none;margin:0;padding:0}
+.sidebar a{display:flex;align-items:baseline;gap:8px;padding:5px 8px;border-radius:6px;
+color:var(--fg);line-height:1.35}
+.sidebar a:hover{background:var(--hover);text-decoration:none;color:var(--title)}
+.sidebar a.active{color:var(--title);font-weight:600;background:var(--hover)}
+.sidebar .count{margin-left:auto;font-size:12px;color:var(--muted);font-weight:400;
+font-variant-numeric:tabular-nums}
+.sidebar ul ul{margin:2px 0 6px 10px;padding-left:8px;border-left:1px solid var(--line)}
+.sidebar ul ul a{font-size:13px;color:var(--muted);padding:3px 8px}
+.content{flex:1;min-width:0;padding:0 24px}
+.page-head{padding:28px 0 8px}
+.page-head .crumb{font-size:13px;color:var(--muted)}
+.page-head .crumb a,footer a{color:var(--title)}
+h1{margin:4px 0 4px;font-size:30px;line-height:1.25;letter-spacing:-.015em}
 .sub{color:var(--muted);margin:0}
-main{max-width:1100px;margin:auto;padding:8px 16px 48px}
+main{padding:8px 0 48px}
+.nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.menu-btn,.scrim{display:none}
+/* Phones and tablets: the sidebar becomes a drawer opened from the menu button. */
+@media(max-width:960px){
+.menu-btn{display:grid;margin-left:-6px}
+.sidebar{position:fixed;z-index:1300;top:0;left:0;bottom:0;max-height:none;width:280px;
+background:var(--card);border-right:1px solid var(--line);transform:translateX(-100%);
+transition:transform .2s ease;padding-top:24px}
+.nav-toggle:checked~.layout .sidebar{transform:none;box-shadow:0 0 24px rgba(0,0,0,.25)}
+.nav-toggle:checked~.layout .scrim{display:block;position:fixed;inset:0;z-index:1200;
+background:rgba(0,0,0,.4)}
+.content{padding:0 16px}
+.source span{display:none}
+}
+@media(max-width:600px){h1{font-size:24px}.logo{max-width:96px}}
+
+/* ---- Documentation pages ------------------------------------------------- */
+.prose{max-width:760px}
+.prose h2{font-size:21px;margin:36px 0 10px;padding-top:4px;letter-spacing:-.01em}
+.prose p,.prose ul,.prose ol,.prose dl{margin:0 0 14px}
+.prose li{margin:4px 0}
+.prose dt{font-weight:600}
+.prose dd{margin:0 0 10px 0;color:var(--muted)}
+.prose a{color:var(--title)}
+.prose code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);
+padding:1px 5px;border-radius:4px}
+.prose pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:12px 14px;
+overflow-x:auto;margin:0 0 16px}
+.prose pre code{padding:0;background:none}
+.doc-table{margin:0 0 16px;font-size:14px}
+.doc-table th{text-align:left;font-weight:600;padding:6px 10px 6px 0;border-bottom:2px solid var(--line)}
+.doc-table td{padding:6px 10px 6px 0;vertical-align:top}
+.admonition{border-left:4px solid var(--title);background:var(--hover);border-radius:6px;
+padding:10px 14px 2px;margin:0 0 16px}
+.admonition-title{font-weight:600;margin:0 0 6px!important}
+
 .kpis{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:10px 14px;min-width:120px}
@@ -55,7 +124,8 @@ td{padding:5px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabula
 td.n{text-align:right;width:56px}
 td.bar{width:40%;padding-left:10px}
 td.bar i{display:block;height:8px;border-radius:4px;background:var(--accent)}
-footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 16px}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0;
+border-top:1px solid var(--line)}
 .leaflet-popup-content{font:13px/1.4 inherit}
 .leaflet-control-layers,.map-legend{background:var(--card);color:var(--fg);
 border:1px solid var(--line)!important;border-radius:8px!important;box-shadow:none!important;font-size:13px}

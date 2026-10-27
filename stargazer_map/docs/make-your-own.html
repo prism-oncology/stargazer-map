@@ -1,0 +1,48 @@
+<p>The maps are made by <a href="https://github.com/$repository">$repository</a>, an
+open-source project. Fork it into your own account or organisation to get maps of your
+repositories.</p>
+
+<h2 id="setup">Set up a fork</h2>
+<ol>
+<li><b>Create a token.</b> Create a
+<a href="https://github.com/settings/tokens/new?scopes=public_repo&amp;description=stargazer-map">classic personal access token</a>
+with only the <code>public_repo</code> scope. Fine-grained tokens don't work, because
+GitHub refuses them the stargazer list.</li>
+<li><b>Add it as a secret.</b> In your fork, open <i>Settings → Secrets and variables →
+Actions → New repository secret</i>. Name it <code>STARGAZERS_TOKEN</code> and paste the
+token.</li>
+<li><b>Enable GitHub Pages.</b> In <i>Settings → Pages</i>, set <i>Source</i> to
+<b>GitHub Actions</b>.</li>
+<li><b>Enable Actions.</b> Open the <i>Actions</i> tab and enable workflows. GitHub turns
+off scheduled workflows in forks until you do.</li>
+<li><b>Run it once.</b> Open <i>Actions → Update star maps → Run workflow</i>. After that
+it runs every Monday.</li>
+</ol>
+<div class="admonition">
+<p class="admonition-title">Why a personal token?</p>
+<p>GitHub only lets admins and collaborators of a repository list its stargazers, so the
+workflow's built-in <code>GITHUB_TOKEN</code> isn't enough. For an organisation that uses
+SAML single sign-on, also authorise the token for that organisation.</p>
+</div>
+
+<h2 id="options">Options</h2>
+<p>Set these in the <code>env:</code> blocks of
+<code>.github/workflows/update-maps.yml</code>.</p>
+<table class="doc-table">
+<tr><th>Variable</th><th>Default</th><th>Effect</th></tr>
+<tr><td><code>INCLUDE_FORKS</code></td><td><code>false</code></td><td>Include repositories that are forks</td></tr>
+<tr><td><code>INCLUDE_ARCHIVED</code></td><td><code>true</code></td><td>Include archived repositories</td></tr>
+<tr><td><code>INCLUDE_LOGINS</code></td><td><code>false</code></td><td>Show stargazers' usernames in map popups and in the published JSON</td></tr>
+<tr><td><code>MAX_GEOCODE</code></td><td><code>800</code></td><td>Maximum number of new locations geocoded per run</td></tr>
+<tr><td><code>MAP_LAYERS</code></td><td><code>countries,bubbles</code></td><td>Layers shown when a page opens</td></tr>
+<tr><td><code>MIN_STARS</code></td><td><code>0</code></td><td>Only list repositories with at least this many stars</td></tr>
+<tr><td><code>LOGO</code></td><td>owner's avatar</td><td>Image file shown in the header instead of the avatar</td></tr>
+</table>
+
+<h2 id="locally">Run it locally</h2>
+<p>You need Python 3.10+ and the <a href="https://cli.github.com/">GitHub CLI</a>,
+signed in with <code>gh auth login</code>.</p>
+<pre><code>pip install git+https://github.com/$repository
+stargazer-map fetch --org &lt;owner&gt;   # writes ./data
+stargazer-map build                 # writes ./site
+python -m http.server -d site</code></pre>

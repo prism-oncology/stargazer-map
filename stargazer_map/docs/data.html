@@ -1,0 +1,36 @@
+<p>Everything on these maps is also published as JSON next to the pages, so you can
+reuse it in your own charts or notebooks.</p>
+
+<h2 id="files">Files</h2>
+<table class="doc-table">
+<tr><th>File</th><th>Contents</th></tr>
+<tr><td><a href="../data/summary.json"><code>data/summary.json</code></a></td><td>When the data was fetched, and one entry per repository: stars, stargazers read and located, number of countries, language, description</td></tr>
+<tr><td><a href="../data/_all.json"><code>data/_all.json</code></a></td><td>Stats for all repositories together, counting each stargazer once</td></tr>
+<tr><td><code>data/&lt;repo&gt;.json</code></td><td>Stats for one repository</td></tr>
+</table>
+
+<h2 id="stats">Stats format</h2>
+<p>Each stats file has the same shape:</p>
+<pre><code>{
+  "stargazers": 412,          // stargazers read
+  "located": 268,             // ...with a location found on the map
+  "countries": [              // most stargazers first
+    {"code": "FR", "name": "France", "count": 57}
+  ],
+  "places": [
+    {"label": "Paris, France", "country": "FR",
+     "lat": 48.85, "lon": 2.35, "count": 31}
+  ]
+}</code></pre>
+<p>Country codes are ISO 3166-1 alpha-2. A place with <code>"country_only": true</code>
+stands for stargazers who gave only a country. When a repository couldn't be read on
+the last run, its file keeps the previous stats and adds <code>error</code> and
+<code>stale_since</code>.</p>
+
+<h2 id="python">From Python</h2>
+<pre><code>import json, urllib.request
+
+url = "https://&lt;this site&gt;/data/_all.json"
+stats = json.load(urllib.request.urlopen(url))
+for c in stats["countries"][:5]:
+    print(c["name"], c["count"])</code></pre>

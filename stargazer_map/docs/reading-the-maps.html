@@ -1,0 +1,40 @@
+<p>Every page shows one map, a few headline numbers and two rankings. The overview
+page combines all repositories, counting each person once even if they starred several
+of them.</p>
+
+<h2 id="numbers">The numbers</h2>
+<dl>
+<dt>Stars</dt><dd>The star count GitHub shows on the repository.</dd>
+<dt>Stargazers read</dt><dd>How many of those stargazers could be listed. It can be lower
+than the star count when accounts have been deleted or GitHub limits the listing.</dd>
+<dt>Unique stargazers</dt><dd>On the overview page: people who starred at least one
+repository, each counted once.</dd>
+<dt>Stargazers located</dt><dd>Stargazers whose profile has a location that could be
+found on a map, with their share of the total.</dd>
+<dt>Countries</dt><dd>Countries with at least one located stargazer.</dd>
+</dl>
+
+<h2 id="layers">Map layers</h2>
+<p>Use the layer control in the top-right corner of the map to switch each layer on or
+off. Your choice is remembered on the next page you open.</p>
+<ul>
+<li><b>Countries</b> are shaded by their number of stargazers, darker for more. The scale
+is logarithmic, so a country with 1,000 stargazers doesn't drown out one with 10. The
+legend in the bottom-left corner gives the values. Hover a country to see its count.</li>
+<li><b>Bubbles</b> mark places (cities, regions, city states). A bubble's area grows with
+its number of stargazers. Click one to see the place and its count.</li>
+</ul>
+
+<h2 id="bubbles">Merged bubbles</h2>
+<p>When two bubbles in the same country sit almost on top of each other, they merge into
+one at the current zoom level. Hover a merged bubble to see its biggest places, and click
+it to zoom in until it splits. Bubbles in different countries never merge.</p>
+<p>Someone whose location is only a country ("Germany") is drawn as a bubble at the
+centre of that country, marked <i>no city given</i>. They count towards the country, but
+don't appear in "Top places".</p>
+
+<h2 id="rankings">Top countries and top places</h2>
+<p>The two tables under the map list the fifteen countries and places with the most
+stargazers. Bars use the same colours as the map: blue for countries, orange for
+places. Places with different names but the same geocoded label (say, "SF" and
+"San Francisco") are counted as one.</p>
