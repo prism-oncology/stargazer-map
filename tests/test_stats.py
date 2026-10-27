@@ -2,7 +2,7 @@ import json
 
 from stargazer_map.geocode import normalise_location
 from stargazer_map.github import parse_github_url
-from stargazer_map.stats import aggregate
+from stargazer_map.stats import aggregate, history
 
 PARIS = {"lat": 48.857, "lon": 2.352, "label": "Paris, France", "country": "France",
          "country_code": "FR", "level": "city"}  # fmt: skip
@@ -44,6 +44,14 @@ def test_aggregate():
     assert "logins" not in stats["places"][0]
 
 
+def test_history():
+    dates = ["2024-12-31T23:00:00Z", "2025-02-01T00:00:00Z", "2025-02-15T00:00:00Z", None]
+    assert history(dates, "2025-03-10T00:00:00+00:00") == [
+        ["2024-12", 1], ["2025-01", 1], ["2025-02", 3], ["2025-03", 3],
+    ]  # fmt: skip
+    assert history([], "2025-03-10") == []
+
+
 def test_aggregate_logins():
     stats = aggregate({"a": "paris", "b": "paris"}, {"paris": PARIS}, include_logins=True)
     assert stats["places"][0]["logins"] == ["a", "b"]
@@ -62,9 +70,9 @@ def test_fetch(tmp_path, monkeypatch):
     ]  # fmt: skip
     stargazers = {
         "tool": [
-            {"login": "a", "location": "Paris"},
-            {"login": "b", "location": "Lyon 🦁"},
-            {"login": "c", "location": None},
+            {"login": "a", "location": "Paris", "starredAt": "2025-11-03T10:00:00Z"},
+            {"login": "b", "location": "Lyon 🦁", "starredAt": "2026-01-20T10:00:00Z"},
+            {"login": "c", "location": None, "starredAt": "2026-01-21T10:00:00Z"},
         ]
     }
 
@@ -99,6 +107,8 @@ def test_fetch(tmp_path, monkeypatch):
                                   "countries": 1}  # fmt: skip
     files = sorted(p.name for p in (data / "stats").iterdir())
     assert files == ["_all.json", "empty.json", "secret.json", "tool.json"]
+    tool = json.loads((data / "stats" / "tool.json").read_text())
+    assert tool["history"][:3] == [["2025-11", 1], ["2025-12", 1], ["2026-01", 3]]
     secret = json.loads((data / "stats" / "secret.json").read_text())
     assert secret["error"] and secret["stale_since"] == old["generated_at"]
     assert json.loads((data / "geocode-cache.json").read_text()) == {"lyon": LYON, "paris": PARIS}

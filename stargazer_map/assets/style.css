@@ -80,6 +80,19 @@ background:rgba(0,0,0,.4)}
 }
 @media(max-width:600px){h1{font-size:24px}.logo{max-width:96px}}
 
+/* ---- Stars over time (repo pages) --------------------------------------- */
+.chart{margin-top:32px}
+.chart svg{display:block;width:100%;height:auto;background:var(--card);
+border:1px solid var(--line);border-radius:12px;margin-bottom:8px}
+.chart text{fill:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.chart-grid{stroke:var(--line)}
+.chart-area{fill:var(--title);opacity:.14}
+.chart-line{fill:none;stroke:var(--title);stroke-width:2;stroke-linejoin:round}
+.chart-dot{fill:var(--title)}
+.chart rect{fill:transparent}
+.chart rect:hover{fill:var(--hover)}
+.chart .sub{font-size:13px}
+
 /* ---- Documentation pages ------------------------------------------------- */
 .prose{max-width:760px}
 .prose h2{font-size:21px;margin:36px 0 10px;padding-top:4px;letter-spacing:-.01em}

@@ -20,10 +20,15 @@ reuse it in your own charts or notebooks.</p>
   "places": [
     {"label": "Paris, France", "country": "FR",
      "lat": 48.85, "lon": 2.35, "count": 31}
+  ],
+  "history": [                // per-repo files only
+    ["2024-03", 12], ["2024-04", 30]
   ]
 }</code></pre>
 <p>Country codes are ISO 3166-1 alpha-2. A place with <code>"country_only": true</code>
-stands for stargazers who gave only a country. When a repository couldn't be read on
+stands for stargazers who gave only a country. <code>history</code> counts current
+stargazers by the month they starred, cumulatively. GitHub doesn't keep the dates of
+removed stars, so it can sit below the star count GitHub showed at the time. When a repository couldn't be read on
 the last run, its file keeps the previous stats and adds <code>error</code> and
 <code>stale_since</code>.</p>
 

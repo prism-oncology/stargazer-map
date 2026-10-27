@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 import shutil
 import string
@@ -29,6 +30,7 @@ LOGO_TYPES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
 # Map layers a viewer can toggle: countries coloured by stargazer count, and one
 # bubble per place sized by count.
 LAYERS = ("countries", "bubbles")
+MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 # Documentation pages: stargazer_map/docs/<slug>.html fragments, in sidebar order.
 # They are string.Template text: $org, $repository and $min_stars_note are filled in.
 DOCS = (
@@ -212,6 +214,69 @@ def map_and_rankings(stats: dict) -> str:
     )
 
 
+def nice_step(raw: float) -> int:
+    """The smallest 1/2/5 × 10^k step that is at least `raw`."""
+    mag = 10 ** max(0, math.floor(math.log10(raw))) if raw >= 1 else 1
+    return next(m * mag for m in (1, 2, 5, 10) if m * mag >= raw)
+
+
+def star_chart(history: list[list]) -> str:
+    """Cumulative stargazers per month (stats.history) as an inline SVG area chart.
+    Each month has an invisible column whose <title> shows its count on hover."""
+    if not history or not history[-1][1]:
+        return ""
+    w, h, left, right, top, bottom = 640, 220, 44, 12, 12, 26
+    pw, ph = w - left - right, h - top - bottom
+    n, peak = len(history), history[-1][1]
+    step = nice_step(peak / 4)
+    ymax = math.ceil(peak / step) * step
+
+    def x(i):
+        return left + (pw * i / (n - 1) if n > 1 else pw / 2)
+
+    def y(v):
+        return top + ph * (1 - v / ymax)
+
+    grid = "".join(
+        f'<line class="chart-grid" x1="{left}" x2="{w - right}" y1="{y(v):.1f}" y2="{y(v):.1f}"/>'
+        f'<text x="{left - 6}" y="{y(v) + 4:.1f}" text-anchor="end">{fmt(v)}</text>'
+        for v in range(0, ymax + 1, step)
+    )
+    # X labels: every few months for young repos, else Januaries, at most ~7 of them.
+    if n <= 24:
+        every = math.ceil(n / 6)
+        ticks = [(i, f"{MONTHS[int(m[5:]) - 1]} {m[2:4]}") for i, (m, _) in enumerate(history)]
+        ticks = ticks[::every]
+    else:
+        years = [(i, m[:4]) for i, (m, _) in enumerate(history) if m.endswith("-01")]
+        ticks = years[:: math.ceil(len(years) / 7)]
+    labels = "".join(
+        f'<text x="{x(i):.1f}" y="{h - 6}" text-anchor="middle">{t}</text>' for i, t in ticks
+    )
+    pts = [(x(i), y(v)) for i, (_, v) in enumerate(history)]
+    if n == 1:
+        pts = [(left, pts[0][1]), (w - right, pts[0][1])]
+    line = " ".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+    area = f"M{pts[0][0]:.1f},{y(0):.1f} L{line} L{pts[-1][0]:.1f},{y(0):.1f} Z"
+    col = pw / max(n - 1, 1)
+    hover = "".join(
+        f'<rect x="{x(i) - col / 2:.1f}" y="{top}" width="{col:.1f}" height="{ph}">'
+        f"<title>{MONTHS[int(m[5:]) - 1]} {m[:4]}: {fmt(v)} stars</title></rect>"
+        for i, (m, v) in enumerate(history)
+    )
+    return (
+        '<section class="chart"><h2>Stars over time</h2>'
+        f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="Stars over time, '
+        f'{fmt(peak)} by {esc(history[-1][0])}">'
+        f'{grid}<path class="chart-area" d="{area}"/>'
+        f'<polyline class="chart-line" points="{line}"/>'
+        f'<circle class="chart-dot" cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="4"/>'
+        f"{labels}{hover}</svg>"
+        '<p class="sub">Current stargazers by the month they starred. GitHub doesn\'t keep'
+        " the dates of stars that were later removed.</p></section>"
+    )
+
+
 def detail_body(stats: dict, star_count=None) -> str:
     warn = ""
     if stats.get("error"):
@@ -219,7 +284,8 @@ def detail_body(stats: dict, star_count=None) -> str:
         if stats.get("stale_since"):
             warn += f" Showing data from {esc(stats['stale_since'][:10])}."
         warn += "</p>"
-    return warn + kpis(stats, star_count) + map_and_rankings(stats)
+    chart = star_chart(stats.get("history") or [])
+    return warn + kpis(stats, star_count) + map_and_rankings(stats) + chart
 
 
 def map_data(stats: dict, layers: list[str]) -> dict:

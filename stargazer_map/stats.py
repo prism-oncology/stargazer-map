@@ -15,7 +15,7 @@ SUMMARY_REPO_KEYS = (
     "repo", "url", "description", "language", "archived",
     "star_count", "stargazers", "located", "error",
 )  # fmt: skip
-AGGREGATE_KEYS = ("stargazers", "with_location", "located", "places", "countries")
+AGGREGATE_KEYS = ("stargazers", "with_location", "located", "places", "countries", "history")
 
 
 def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = False) -> dict:
@@ -73,6 +73,22 @@ def aggregate(users: dict[str, str | None], cache: dict, include_logins: bool = 
     }
 
 
+def history(starred_at: list[str], now: str) -> list[list]:
+    """Cumulative stargazers per month, [["YYYY-MM", n], ...], from the month of the
+    first star to the month of `now`. Only current stargazers count: GitHub forgets
+    when a removed star was given."""
+    months = Counter(d[:7] for d in starred_at if d)
+    if not months:
+        return []
+    year, month = map(int, min(months).split("-"))
+    rows, total = [], 0
+    while (key := f"{year:04d}-{month:02d}") <= now[:7]:
+        total += months[key]
+        rows.append([key, total])
+        year, month = (year + 1, 1) if month == 12 else (year, month + 1)
+    return rows
+
+
 def write_json(path: Path, obj: dict) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -103,6 +119,7 @@ def fetch(
     print(f"{len(repos)} repos in {org}")
 
     per_repo_users: dict[str, dict[str, str | None]] = {}
+    per_repo_dates: dict[str, list[str]] = {}
     errors: dict[str, str] = {}
     for r in repos:
         if r["stargazerCount"] == 0:
@@ -118,6 +135,7 @@ def fetch(
         per_repo_users[r["name"]] = {
             n["login"]: geocode.normalise_location(n.get("location")) for n in nodes
         }
+        per_repo_dates[r["name"]] = [n.get("starredAt") for n in nodes]
 
     starred = [r["name"] for r in repos if r["stargazerCount"] > 0]
     if starred and all(name in errors for name in starred):
@@ -149,6 +167,7 @@ def fetch(
         }
         if users is not None:
             stats.update(aggregate(users, cache, include_logins))
+            stats["history"] = history(per_repo_dates.get(name, []), now)
             union.update(users)
         else:
             # Keep the previous map if this run could not read the repo.

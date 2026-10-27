@@ -41,8 +41,9 @@ def make_data(tmp_path):
         "places": [{"lat": 1, "lon": 2, "label": "Evil </script>", "count": 1}],
         "countries": [{"code": "FR", "name": "France", "count": 1}],
     }
-    write(data / "stats" / "tool.json", stats)
     write(data / "stats" / "_all.json", stats)
+    stats["history"] = [["2026-09", 1], ["2026-10", 2]]
+    write(data / "stats" / "tool.json", stats)
     return data
 
 
@@ -78,6 +79,9 @@ def test_build(tmp_path):
     }
     countries = json.loads((site / "assets" / "countries.geojson").read_text(encoding="utf-8"))
     assert {"FR", "SG", "BH"} <= {f["id"] for f in countries["features"]}
+    # Repo pages chart their stars over time; the overview doesn't.
+    assert "<h2>Stars over time</h2>" in tool and "<title>Oct 2026: 2 stars</title>" in tool
+    assert "Stars over time" not in index
     # Every page has the sidebar, with this page marked.
     assert '<a href="tool.html" class="active" aria-current="page">tool' in tool
     assert '<a href="docs/how-it-works.html">How it works</a>' in index
