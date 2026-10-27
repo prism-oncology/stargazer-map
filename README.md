@@ -41,7 +41,7 @@ Set these in the `env:` blocks of `.github/workflows/update-maps.yml`. `MAP_LAYE
 | `MAX_GEOCODE` | `800` | Maximum number of new locations geocoded per run |
 | `MAP_LAYERS` | `countries,bubbles` | Map views shown when a page opens: `countries`, `bubbles`, or both. Visitors can still toggle each one |
 | `MIN_STARS` | `0` (`10` for prism-oncology) | Only list repositories with at least this many stars. Smaller repositories get no page or card, but their stargazers still count on the overview map |
-| `LOGO` | none (`branding/prism-oncology.jpeg` for prism-oncology) | Image file (svg, png, jpg or webp) shown at the top of every page. Put yours in `branding/` |
+| `LOGO` | the owner's GitHub avatar (`branding/prism-oncology.jpeg` for prism-oncology) | Image file (svg, png, jpg or webp) shown at the top of every page instead of the avatar.
 
 ## Token
 
