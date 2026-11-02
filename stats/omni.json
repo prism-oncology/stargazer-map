@@ -4,12 +4,12 @@
  "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
  "language": "Python",
  "archived": false,
- "star_count": 10,
- "generated_at": "2026-10-27T13:34:26+00:00",
+ "star_count": 12,
+ "generated_at": "2026-11-02T12:23:35+00:00",
  "error": null,
- "stargazers": 10,
- "with_location": 7,
- "located": 7,
+ "stargazers": 12,
+ "with_location": 8,
+ "located": 8,
  "places": [
   {
    "lat": 48.853,
@@ -19,17 +19,17 @@
    "count": 2
   },
   {
-   "lat": 37.444,
-   "lon": -122.16,
-   "label": "Palo Alto, United States",
-   "country": "US",
-   "count": 1
-  },
-  {
    "lat": -37.814,
    "lon": 144.963,
    "label": "Melbourne, Australia",
    "country": "AU",
+   "count": 2
+  },
+  {
+   "lat": 37.444,
+   "lon": -122.16,
+   "label": "Palo Alto, United States",
+   "country": "US",
    "count": 1
   },
   {
@@ -69,7 +69,7 @@
   {
    "code": "AU",
    "name": "Australia",
-   "count": 1
+   "count": 2
   },
   {
    "code": "CN",
@@ -85,7 +85,11 @@
  "history": [
   [
    "2026-10",
-   10
+   12
+  ],
+  [
+   "2026-11",
+   12
   ]
  ]
 }

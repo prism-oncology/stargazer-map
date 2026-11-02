@@ -376,6 +376,14 @@
   "country_code": "FR",
   "level": "country"
  },
+ "germantown, md": {
+  "lat": 39.171,
+  "lon": -77.266,
+  "label": "Germantown, United States",
+  "country": "United States",
+  "country_code": "US",
+  "level": "statistical"
+ },
  "germany": {
   "lat": 51.164,
   "lon": 10.448,

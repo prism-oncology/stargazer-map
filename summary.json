@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-10-27T13:34:26+00:00",
+ "generated_at": "2026-11-02T12:23:35+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -9,8 +9,8 @@
    "description": "Technology-invariant pipeline for spatial omics analysis that scales to millions of cells (Xenium / Visium HD / MERSCOPE / CosMx / PhenoCycler / MACSima / etc.)",
    "language": "Python",
    "archived": false,
-   "star_count": 296,
-   "stargazers": 296,
+   "star_count": 298,
+   "stargazers": 298,
    "located": 163,
    "error": null,
    "countries": 28
@@ -21,8 +21,8 @@
    "description": "Graph-based foundation model for spatial transcriptomics data. Zero-shot spatial domain inference, batch-effect correction, and many other features.",
    "language": "Python",
    "archived": false,
-   "star_count": 163,
-   "stargazers": 163,
+   "star_count": 164,
+   "stargazers": 164,
    "located": 88,
    "error": null,
    "countries": 21
@@ -57,9 +57,9 @@
    "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
    "language": "Python",
    "archived": false,
-   "star_count": 10,
-   "stargazers": 10,
-   "located": 7,
+   "star_count": 12,
+   "stargazers": 12,
+   "located": 8,
    "error": null,
    "countries": 5
   },
@@ -88,22 +88,34 @@
    "countries": 1
   },
   {
-   "repo": "ALHENA-paper",
-   "url": "https://github.com/prism-oncology/ALHENA-paper",
-   "description": null,
-   "language": "Jupyter Notebook",
+   "repo": "snakemake-sopa",
+   "url": "https://github.com/prism-oncology/snakemake-sopa",
+   "description": "Archive of the original snakemake version of sopa",
+   "language": "Python",
    "archived": false,
-   "star_count": 0,
-   "stargazers": 0,
-   "located": 0,
+   "star_count": 1,
+   "stargazers": 1,
+   "located": 1,
    "error": null,
-   "countries": 0
+   "countries": 1
   },
   {
    "repo": "ALHENA",
    "url": "https://github.com/prism-oncology/ALHENA",
    "description": "ALHENA, an H&E encoder distilled from transcriptomic foundation models for multi-scale slide analysis.",
    "language": "Python",
+   "archived": false,
+   "star_count": 1,
+   "stargazers": 1,
+   "located": 1,
+   "error": null,
+   "countries": 1
+  },
+  {
+   "repo": "ALHENA-paper",
+   "url": "https://github.com/prism-oncology/ALHENA-paper",
+   "description": null,
+   "language": "Jupyter Notebook",
    "archived": false,
    "star_count": 0,
    "stargazers": 0,
@@ -149,9 +161,9 @@
   }
  ],
  "overall": {
-  "stargazers": 473,
-  "with_location": 256,
-  "located": 252,
+  "stargazers": 477,
+  "with_location": 257,
+  "located": 253,
   "countries": 33
  }
 }

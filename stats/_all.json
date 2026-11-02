@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-10-27T13:34:26+00:00",
- "stargazers": 473,
- "with_location": 256,
- "located": 252,
+ "generated_at": "2026-11-02T12:23:35+00:00",
+ "stargazers": 477,
+ "with_location": 257,
+ "located": 253,
  "places": [
   {
    "lat": 48.853,
@@ -29,6 +29,13 @@
    "count": 7
   },
   {
+   "lat": -37.814,
+   "lon": 144.963,
+   "label": "Melbourne, Australia",
+   "country": "AU",
+   "count": 7
+  },
+  {
    "lat": 48.137,
    "lon": 11.575,
    "label": "Munich, Germany",
@@ -49,13 +56,6 @@
    "label": "Boston, United States",
    "country": "US",
    "count": 7
-  },
-  {
-   "lat": -37.814,
-   "lon": 144.963,
-   "label": "Melbourne, Australia",
-   "country": "AU",
-   "count": 6
   },
   {
    "lat": 52.517,
@@ -480,9 +480,9 @@
    "count": 1
   },
   {
-   "lat": 39.082,
-   "lon": -77.152,
-   "label": "Rockville, United States",
+   "lat": 39.171,
+   "lon": -77.266,
+   "label": "Germantown, United States",
    "country": "US",
    "count": 1
   },
@@ -959,7 +959,7 @@
   {
    "code": "AU",
    "name": "Australia",
-   "count": 9
+   "count": 10
   },
   {
    "code": "SE",

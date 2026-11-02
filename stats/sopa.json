@@ -4,10 +4,10 @@
  "description": "Technology-invariant pipeline for spatial omics analysis that scales to millions of cells (Xenium / Visium HD / MERSCOPE / CosMx / PhenoCycler / MACSima / etc.)",
  "language": "Python",
  "archived": false,
- "star_count": 296,
- "generated_at": "2026-10-27T13:34:26+00:00",
+ "star_count": 298,
+ "generated_at": "2026-11-02T12:23:35+00:00",
  "error": null,
- "stargazers": 296,
+ "stargazers": 298,
  "with_location": 164,
  "located": 163,
  "places": [
@@ -356,9 +356,9 @@
    "count": 1
   },
   {
-   "lat": 39.082,
-   "lon": -77.152,
-   "label": "Rockville, United States",
+   "lat": 39.171,
+   "lon": -77.266,
+   "label": "Germantown, United States",
    "country": "US",
    "count": 1
   },
@@ -958,7 +958,11 @@
   ],
   [
    "2026-10",
-   296
+   298
+  ],
+  [
+   "2026-11",
+   298
   ]
  ]
 }
