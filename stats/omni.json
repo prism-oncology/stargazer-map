@@ -4,10 +4,10 @@
  "description": "[NeurIPS26] Scaling Multi-Teacher Distillation for Digital Pathology",
  "language": "Python",
  "archived": false,
- "star_count": 12,
- "generated_at": "2026-11-02T12:23:35+00:00",
+ "star_count": 13,
+ "generated_at": "2026-11-09T12:51:40+00:00",
  "error": null,
- "stargazers": 12,
+ "stargazers": 13,
  "with_location": 8,
  "located": 8,
  "places": [
@@ -89,7 +89,7 @@
   ],
   [
    "2026-11",
-   12
+   13
   ]
  ]
 }

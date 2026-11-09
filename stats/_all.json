@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-11-02T12:23:35+00:00",
- "stargazers": 477,
- "with_location": 257,
- "located": 253,
+ "generated_at": "2026-11-09T12:51:40+00:00",
+ "stargazers": 479,
+ "with_location": 258,
+ "located": 254,
  "places": [
   {
    "lat": 48.853,
@@ -20,6 +20,13 @@
    "label": "Greater London, United Kingdom",
    "country": "GB",
    "count": 10
+  },
+  {
+   "lat": 42.359,
+   "lon": -71.058,
+   "label": "Boston, United States",
+   "country": "US",
+   "count": 8
   },
   {
    "lat": 39.906,
@@ -49,13 +56,6 @@
    "country": "US",
    "count": 7,
    "country_only": true
-  },
-  {
-   "lat": 42.359,
-   "lon": -71.058,
-   "label": "Boston, United States",
-   "country": "US",
-   "count": 7
   },
   {
    "lat": 52.517,
@@ -929,7 +929,7 @@
   {
    "code": "US",
    "name": "United States",
-   "count": 60
+   "count": 61
   },
   {
    "code": "CN",
