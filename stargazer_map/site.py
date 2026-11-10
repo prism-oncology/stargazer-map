@@ -26,7 +26,7 @@ from importlib import resources
 from pathlib import Path
 
 LEAFLET = "https://unpkg.com/leaflet@1.9.4/dist"
-ASSETS = ("style.css", "theme.js", "logo.js", "map.js", "countries.geojson")
+ASSETS = ("style.css", "theme.js", "logo.js", "map.js", "countries.geojson", "favicon.png")
 LOGO_TYPES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
 # Map layers a viewer can toggle: countries coloured by stargazer count, and one
 # bubble per place sized by count.
@@ -147,6 +147,7 @@ def page(
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
+<link rel="icon" href="{root}assets/favicon.png">
 {leaflet_css}<link rel="stylesheet" href="{root}assets/style.css">
 {THEME_INIT}</head>
 <body>
