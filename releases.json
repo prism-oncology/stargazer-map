@@ -1,0 +1,209 @@
+[
+ {
+  "repo": "novae",
+  "name": "v1.1.3",
+  "tagName": "v1.1.3",
+  "publishedAt": "2026-11-06T11:16:06Z",
+  "url": "https://github.com/prism-oncology/novae/releases/tag/v1.1.3",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Add python==3.14 to the CI but drop support for python==3.11 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6202714822\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/75\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/75/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/75\">#75</a></li>\n<li>Use <code>ty</code> for type checking by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6202714822\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/75\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/75/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/75\">#75</a></li>\n<li>Speed-up data loader by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6225196897\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/76\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/76/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/76\">#76</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/novae/compare/v1.1.2...v1.1.3\"><tt>v1.1.2...v1.1.3</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "sopa",
+  "name": "v2.3.0",
+  "tagName": "v2.3.0",
+  "publishedAt": "2026-11-04T18:35:37Z",
+  "url": "https://github.com/prism-oncology/sopa/releases/tag/v2.3.0",
+  "descriptionHTML": "<p>This version includes several deprecations, detailed below. This aligns with the current scope of Sopa, i.e., mainly maintaining (1) the API and (2) the Nextflow pipeline.</p>\n<h2>Added</h2>\n<ul>\n<li>Enable GPU usage for InstanSeg by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6186976654\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/461\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/461/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/461\">#461</a></li>\n</ul>\n<h2>Changes</h2>\n<ul>\n<li>Deprecate the snakemake pipeline by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6095971186\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/458/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/458\">#458</a> - we now recommend using <a href=\"https://nf-co.re/sopa/\" rel=\"nofollow\">nf-core/sopa</a> instead. The snakemake workflow was archived <a href=\"https://github.com/prism-oncology/snakemake-sopa\">here</a>.</li>\n<li>Remove support for python 3.11 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6183365814\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/460\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/460/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/460\">#460</a> in favor of python 3.14 now being added to the CI</li>\n<li>Deprecate tangram by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6183365814\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/460\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/460/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/460\">#460</a></li>\n<li>Never clip values by 0.99 quantile in raw readers by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"6095234191\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/457\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/457/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/457\">#457</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/sopa/compare/v2.2.12...v2.3.0\"><tt>v2.2.12...v2.3.0</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "sopa",
+  "name": "v2.2.12",
+  "tagName": "v2.2.12",
+  "publishedAt": "2026-10-27T10:11:14Z",
+  "url": "https://github.com/prism-oncology/sopa/releases/tag/v2.2.12",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>feat: add InstanSeg segmentation method by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/lguerard/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/lguerard\">@lguerard</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5334919646\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/447\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/447/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/447\">#447</a></li>\n<li>Document how to import an existing segmentation mask by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/psgundla/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/psgundla\">@psgundla</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5440123432\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/448\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/448/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/448\">#448</a></li>\n<li>Fix Cellpose GPU use by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5748335692\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/451\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/451/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/451\">#451</a></li>\n<li>Docs update: recommend baysor/proseg installation via their bioconda recipes by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5941445886\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/456\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/456/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/456\">#456</a></li>\n</ul>\n<h2>New Contributors</h2>\n<ul>\n<li><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/psgundla/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/psgundla\">@psgundla</a> made their first contribution in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5440123432\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/448\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/448/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/448\">#448</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/sopa/compare/v2.2.11...v2.2.12\"><tt>v2.2.11...v2.2.12</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "ALHENA",
+  "name": "v0.1.0",
+  "tagName": "v0.1.0",
+  "publishedAt": "2026-10-24T13:56:24Z",
+  "url": "https://github.com/prism-oncology/ALHENA/releases/tag/v0.1.0",
+  "descriptionHTML": "<p>Initial release</p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "stargazer-map",
+  "name": "v0.2.0",
+  "tagName": "v0.2.0",
+  "publishedAt": "2026-10-12T11:42:00Z",
+  "url": "https://github.com/prism-oncology/stargazer-map/releases/tag/v0.2.0",
+  "descriptionHTML": "<h2>stargazer-map 0.2.0</h2>\n<ul>\n<li><strong>Country map:</strong> countries are coloured by number of stargazers, andwe can viz countries, bubbles, or both.</li>\n<li><strong>Light/dark mode</strong> switch.</li>\n<li><strong>Cleaner bubbles:</strong> nearby places in the same country merge, duplicate spellings of a city are grouped, and country-only locations (\"USA\") no longer appear as places.</li>\n<li><strong>New settings:</strong> <code>MIN_STARS</code> to hide small repositories, <code>LOGO</code> to show logo.</li>\n<li><strong>Data now lives on a separate <code>data</code> branch,</strong> so the weekly update no longer commits to <code>main</code>.</li>\n</ul>\n<p><strong>Forks:</strong> the next run starts from empty data if your fork has no <code>data</code> branch.</p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "stargazer-map",
+  "name": "v0.1.0",
+  "tagName": "v0.1.0",
+  "publishedAt": "2026-10-09T09:27:02Z",
+  "url": "https://github.com/prism-oncology/stargazer-map/releases/tag/v0.1.0",
+  "descriptionHTML": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/stargazer-map/compare/v0.1.0...v0.1.0\"><tt>v0.1.0...v0.1.0</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "novae",
+  "name": "v1.1.2",
+  "tagName": "v1.1.2",
+  "publishedAt": "2026-09-16T14:50:14Z",
+  "url": "https://github.com/prism-oncology/novae/releases/tag/v1.1.2",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Add pyarrow dependency in the main deps by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5213264666\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/72\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/72/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/72\">#72</a></li>\n<li>Add cell sampling in kmeans when re-updating prototypes by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5449059894\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/74\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/74/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/74\">#74</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/novae/compare/v1.1.1...v1.1.2\"><tt>v1.1.1...v1.1.2</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "sopa",
+  "name": "v2.2.11",
+  "tagName": "v2.2.11",
+  "publishedAt": "2026-09-02T14:50:45Z",
+  "url": "https://github.com/prism-oncology/sopa/releases/tag/v2.2.11",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Support the Baysor Cpp implementation by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4735252263\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/430\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/430/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/430\">#430</a></li>\n<li>Fix Stardist+Proseg usage on Visium HD for recent anndata versions by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5255139724\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/443\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/443/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/443\">#443</a></li>\n<li>Add CLI command to cache the cellpose model by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5268511960\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/445\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/445/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/445\">#445</a></li>\n<li>Minor documentation fixes by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4890691829\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/435\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/435/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/435\">#435</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/sopa/compare/v2.2.10...v2.2.11\"><tt>v2.2.10...v2.2.11</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "customics",
+  "name": "v0.1.2",
+  "tagName": "v0.1.2",
+  "publishedAt": "2026-08-28T08:32:07Z",
+  "url": "https://github.com/prism-oncology/customics/releases/tag/v0.1.2",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>fix: pin mudata&gt;=0.4.0 and drop set_options call <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5265496974\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/customics/issues/17\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/customics/pull/17/hovercard\" href=\"https://github.com/prism-oncology/customics/pull/17\">#17</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/customics/compare/v0.1.1...v0.1.2\"><tt>v0.1.1...v0.1.2</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "customics",
+  "name": "v0.1.1",
+  "tagName": "v0.1.1",
+  "publishedAt": "2026-07-09T12:14:39Z",
+  "url": "https://github.com/prism-oncology/customics/releases/tag/v0.1.1",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<h3>Documentation</h3>\n<ul>\n<li>Shipped tutorial figures</li>\n<li>Fixed the dark-mode toggle on the docs site</li>\n<li>Updated the copyright statement</li>\n</ul>\n<p>Full changelog: <a href=\"https://github.com/prism-oncology/CustOmics/compare/v0.1.0...v0.1.1\">v0.1.0...v0.1.1</a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "novae",
+  "name": "v1.1.1",
+  "tagName": "v1.1.1",
+  "publishedAt": "2026-07-08T11:40:30Z",
+  "url": "https://github.com/prism-oncology/novae/releases/tag/v1.1.1",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Added a learning rate scheduler in fit and fine-tune. This should improve the model stability during training. It can be disabled using use_scheduler=False. By <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4836939659\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/66\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/66/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/66\">#66</a></li>\n<li>Updated the default fit/fine_tune arguments: we now use patience=4 and min_delta=0.05 for slightly longer training by default. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4836939659\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/66\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/66/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/66\">#66</a></li>\n<li>Misc docs updates (more advice, fix broken links, etc). <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4836939659\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/66\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/66/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/66\">#66</a></li>\n<li>Remove old deprecated functions. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4836939659\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/66\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/66/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/66\">#66</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/novae/compare/v1.1.0...v1.1.1\"><tt>v1.1.0...v1.1.1</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "sopa",
+  "name": "v2.2.10",
+  "tagName": "v2.2.10",
+  "publishedAt": "2026-07-08T11:02:10Z",
+  "url": "https://github.com/prism-oncology/sopa/releases/tag/v2.2.10",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Enable using a scale&gt;0 in staining-based segmentation for CLI/pipeline by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4818642909\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/432\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/432/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/432\">#432</a></li>\n<li>Fix pandas / AnnData 0.13.0 compatibility by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4836132229\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/433\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/433/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/433\">#433</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/sopa/compare/v2.2.9...v2.2.10\"><tt>v2.2.9...v2.2.10</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan",
+  "name": "v1.8.0",
+  "tagName": "v1.8.0",
+  "publishedAt": "2026-07-08T07:36:57Z",
+  "url": "https://github.com/prism-oncology/scyan/releases/tag/v1.8.0",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Support anndata==0.13.0 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4835319916\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/scyan/issues/46\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/scyan/pull/46/hovercard\" href=\"https://github.com/prism-oncology/scyan/pull/46\">#46</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/scyan/compare/v1.7.7...v1.8.0\"><tt>v1.7.7...v1.8.0</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "customics",
+  "name": "v0.1.0",
+  "tagName": "v0.1.0",
+  "publishedAt": "2026-07-02T14:17:11Z",
+  "url": "https://github.com/prism-oncology/customics/releases/tag/v0.1.0",
+  "descriptionHTML": "<h2>v0.1.0 — First public release 🎉</h2>\n<p>The API now runs entirely on <strong><a href=\"https://mudata.readthedocs.io/\" rel=\"nofollow\">MuData</a></strong> (<a href=\"https://scverse.org/\" rel=\"nofollow\">scverse</a>): one object per omics source, clinical data in<br>\n<code>.obs</code>/<code>.uns</code>, and a scikit-learn-style <code>fit</code> / <code>predict</code> / <code>evaluate</code> workflow.</p>\n<h3>Added</h3>\n<ul>\n<li><strong>MuData-native pipeline</strong> — the whole model (data loading, training, inference,<br>\nexplainability) now works directly on <code>MuData</code> objects.</li>\n<li><strong>Data helpers</strong> — <code>toy_dataset</code>, <code>prepare_input</code>, <code>get_shared_samples</code>,<br>\n<code>get_sub_mudata</code>, and <code>split_mudata</code> (one-call train/val/test split).</li>\n<li><strong>Visualization</strong> — <code>plot_cohort_overview</code>.</li>\n<li><strong>Documentation</strong> — getting-started guide, API reference, and end-to-end tutorial.</li>\n</ul>\n<h3>Requirements</h3>\n<ul>\n<li>Python ≥ 3.11</li>\n</ul>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "novae",
+  "name": "v1.1.0",
+  "tagName": "v1.1.0",
+  "publishedAt": "2026-06-26T07:46:39Z",
+  "url": "https://github.com/prism-oncology/novae/releases/tag/v1.1.0",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Added a new Novae model using scConcept embeddings as node features by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4750011012\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/63\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/63/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/63\">#63</a></li>\n<li>Conserve zero-shot prototypes when re-computing representations by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4684088368\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/60\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/60/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/60\">#60</a></li>\n<li>Use <code>np.float64</code> in kmeans to improve zero_shot reproducibility by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4700256878\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/61\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/61/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/61\">#61</a></li>\n<li>Fix ci: huggingface token and codecov by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4595193491\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/56\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/56/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/56\">#56</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/novae/compare/v1.0.7...v1.1.0\"><tt>v1.0.7...v1.1.0</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "sopa",
+  "name": "v2.2.9",
+  "tagName": "v2.2.9",
+  "publishedAt": "2026-06-19T14:31:58Z",
+  "url": "https://github.com/prism-oncology/sopa/releases/tag/v2.2.9",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>Increase point write speed for sopa.io.explorer.write by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/pakiessling/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/pakiessling\">@pakiessling</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4549388498\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/425\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/425/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/425\">#425</a></li>\n<li>Add <code>nucleus_shapes_key</code> to the writer by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4557509140\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/426\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/426/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/426\">#426</a></li>\n<li>Disable the check on the number of channels when using cellpose v4 + docs clarifications by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4694935531\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/sopa/issues/429\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/sopa/pull/429/hovercard\" href=\"https://github.com/prism-oncology/sopa/pull/429\">#429</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/sopa/compare/v2.2.8...v2.2.9\"><tt>v2.2.8...v2.2.9</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "novae",
+  "name": "v1.0.6",
+  "tagName": "v1.0.6",
+  "publishedAt": "2026-05-30T13:09:06Z",
+  "url": "https://github.com/prism-oncology/novae/releases/tag/v1.0.6",
+  "descriptionHTML": "<h2>What's Changed</h2>\n<ul>\n<li>LLM-based naming of the spatial domains by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> and <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4316918374\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/48\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/48/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/48\">#48</a></li>\n<li>Can load annotated slides from HF by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4378192192\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/52\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/52/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/52\">#52</a></li>\n<li>Rename hugging-face organization (backward compatible) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/quentinblampey/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/quentinblampey\">@quentinblampey</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4549489411\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/54\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/54/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/54\">#54</a></li>\n</ul>\n<h2>New Contributors</h2>\n<ul>\n<li><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alihamraoui/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/alihamraoui\">@alihamraoui</a> made their first contribution in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4316918374\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/novae/issues/48\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/novae/pull/48/hovercard\" href=\"https://github.com/prism-oncology/novae/pull/48\">#48</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/novae/compare/v1.0.5...v1.0.6\"><tt>v1.0.5...v1.0.6</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "customics",
+  "name": "v0.0.1",
+  "tagName": "v0.0.1",
+  "publishedAt": "2026-05-12T16:02:38Z",
+  "url": "https://github.com/prism-oncology/customics/releases/tag/v0.0.1",
+  "descriptionHTML": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/prism-oncology/customics/compare/v0.0.1...v0.0.1\"><tt>v0.0.1...v0.0.1</tt></a></p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan",
+  "name": "v1.7.6",
+  "tagName": "v1.7.6",
+  "publishedAt": "2026-04-07T07:51:12Z",
+  "url": "https://github.com/prism-oncology/scyan/releases/tag/v1.7.6",
+  "descriptionHTML": "<h2>[1.7.6] - 2026-04-07</h2>\n<ul>\n<li>Move scyan to our new GitHub organization: <a href=\"https://github.com/prism-oncology\">prism-oncology</a> (WIP)</li>\n<li>Move to <code>uv</code> and <code>ruff</code></li>\n<li>Upgrade dependencies to now use python&gt;=3.11 and more recent deps versions</li>\n</ul>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan",
+  "name": "v1.6.2",
+  "tagName": "v1.6.2",
+  "publishedAt": "2024-05-22T15:47:52Z",
+  "url": "https://github.com/prism-oncology/scyan/releases/tag/v1.6.2",
+  "descriptionHTML": "<h2>[1.6.2] - 2024-05-22</h2>\n<p>Hotfix: use get_cmap from matplotlib.pyplot (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2310632147\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/scyan/issues/35\" data-hovercard-type=\"issue\" data-hovercard-url=\"/prism-oncology/scyan/issues/35/hovercard\" href=\"https://github.com/prism-oncology/scyan/issues/35\">#35</a>)</p>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan",
+  "name": "v1.6.1",
+  "tagName": "v1.6.1",
+  "publishedAt": "2024-04-08T13:20:28Z",
+  "url": "https://github.com/prism-oncology/scyan/releases/tag/v1.6.1",
+  "descriptionHTML": "<h2>[1.6.1] - 2024-04-08</h2>\n<h3>Changed</h3>\n<ul>\n<li>More dependencies version support</li>\n<li>Use <code>\"cpu\"</code> accelerator by default</li>\n</ul>\n<h3>Added</h3>\n<ul>\n<li>Spillover matrix reading + function to apply it in <code>scyan.preprocess</code></li>\n</ul>\n<h3>Fixed</h3>\n<ul>\n<li>Issue when running <code>.predict</code> after training on GPU (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2231253640\" data-permission-text=\"Title is private\" data-url=\"https://github.com/prism-oncology/scyan/issues/34\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/prism-oncology/scyan/pull/34/hovercard\" href=\"https://github.com/prism-oncology/scyan/pull/34\">#34</a>)</li>\n</ul>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan",
+  "name": "v1.5.3",
+  "tagName": "v1.5.3",
+  "publishedAt": "2023-11-21T10:58:05Z",
+  "url": "https://github.com/prism-oncology/scyan/releases/tag/v1.5.3",
+  "descriptionHTML": "<ul>\n<li>Fix GPU usage</li>\n</ul>",
+  "isPrerelease": false
+ },
+ {
+  "repo": "scyan_data",
+  "name": "v1.0.0",
+  "tagName": "v1.0.0",
+  "publishedAt": "2022-09-16T07:55:25Z",
+  "url": "https://github.com/prism-oncology/scyan_data/releases/tag/v1.0.0",
+  "descriptionHTML": "<p>Public datasets for paper peer review.</p>",
+  "isPrerelease": false
+ }
+]

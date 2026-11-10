@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-11-09T12:51:40+00:00",
+ "generated_at": "2026-11-10T12:03:46+00:00",
  "stargazers": 479,
- "with_location": 258,
- "located": 254,
+ "with_location": 257,
+ "located": 253,
  "places": [
   {
    "lat": 48.853,
@@ -190,13 +190,6 @@
    "lon": 4.832,
    "label": "Lyon, France",
    "country": "FR",
-   "count": 2
-  },
-  {
-   "lat": 37.567,
-   "lon": 126.978,
-   "label": "Seoul, South Korea",
-   "country": "KR",
    "count": 2
   },
   {
@@ -833,6 +826,13 @@
    "count": 1
   },
   {
+   "lat": 37.567,
+   "lon": 126.978,
+   "label": "Seoul, South Korea",
+   "country": "KR",
+   "count": 1
+  },
+  {
    "lat": 35.084,
    "lon": -106.651,
    "label": "Albuquerque, United States",
@@ -992,11 +992,6 @@
    "count": 4
   },
   {
-   "code": "KR",
-   "name": "South Korea",
-   "count": 3
-  },
-  {
    "code": "NL",
    "name": "Netherlands",
    "count": 3
@@ -1024,6 +1019,11 @@
   {
    "code": "BR",
    "name": "Brazil",
+   "count": 2
+  },
+  {
+   "code": "KR",
+   "name": "South Korea",
    "count": 2
   },
   {

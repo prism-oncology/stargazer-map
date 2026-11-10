@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-11-09T12:51:40+00:00",
+ "generated_at": "2026-11-10T12:03:46+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -23,7 +23,7 @@
    "archived": false,
    "star_count": 164,
    "stargazers": 164,
-   "located": 88,
+   "located": 87,
    "error": null,
    "countries": 21
   },
@@ -162,8 +162,8 @@
  ],
  "overall": {
   "stargazers": 479,
-  "with_location": 258,
-  "located": 254,
+  "with_location": 257,
+  "located": 253,
   "countries": 33
  }
 }
