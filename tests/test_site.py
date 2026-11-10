@@ -44,6 +44,37 @@ def make_data(tmp_path):
     write(data / "stats" / "_all.json", stats)
     stats["history"] = [["2026-09", 1], ["2026-10", 2]]
     write(data / "stats" / "tool.json", stats)
+    (data / "about.html").write_text(
+        '<div id="file" class="md"><article class="markdown-body entry-content">'
+        '<div class="markdown-heading" dir="auto">'
+        '<h2 class="heading-element">Welcome</h2>'
+        '<a class="anchor" href="#welcome"><svg></svg></a></div>'
+        "<p>We build open-source tools.</p></article></div>",
+        encoding="utf-8",
+    )
+    write(
+        data / "releases.json",
+        [
+            {
+                "repo": "tool",
+                "name": "v1.0",
+                "tagName": "v1.0",
+                "publishedAt": "2026-10-01T10:00:00Z",
+                "url": "https://github.com/me/tool/releases/tag/v1.0",
+                "descriptionHTML": "<p>First release</p>",
+                "isPrerelease": False,
+            },
+            {
+                "repo": "tool",
+                "name": "v0.9-beta",
+                "tagName": "v0.9-beta",
+                "publishedAt": "2026-08-01T10:00:00Z",
+                "url": "https://github.com/me/tool/releases/tag/v0.9-beta",
+                "descriptionHTML": "<p>Beta</p>",
+                "isPrerelease": True,
+            },
+        ],
+    )
     return data
 
 
@@ -141,6 +172,43 @@ def test_build_logo(tmp_path):
     for bad in (tmp_path / "missing.png", data / "summary.json"):
         with pytest.raises(ValueError):
             build(data, tmp_path / "site", logo=bad)
+
+
+def test_build_topnav(tmp_path):
+    site = build(make_data(tmp_path), tmp_path / "site")
+    index = (site / "index.html").read_text(encoding="utf-8")
+    # Topbar has navigation links, no repository text.
+    assert '<nav class="topnav">' in index
+    assert 'href="about.html">About</a>' in index
+    assert 'href="news.html">News</a>' in index
+    # GitHub icon is a link, without the repo name as text.
+    assert 'title="me/stargazer-map"' in index
+    assert "<span>me/stargazer-map</span>" not in index
+
+
+def test_build_about(tmp_path):
+    site = build(make_data(tmp_path), tmp_path / "site")
+    about = (site / "about.html").read_text(encoding="utf-8")
+    assert "We build open-source tools." in about
+    assert '<article class="prose">' in about
+    # GitHub wrapper markup and anchor SVGs are stripped.
+    assert "markdown-body" not in about
+    assert '<a class="anchor"' not in about
+    assert "<h2" in about
+    # Topnav links to the about page.
+    assert 'href="about.html">About</a>' in about
+
+
+def test_build_news(tmp_path):
+    site = build(make_data(tmp_path), tmp_path / "site")
+    news = (site / "news.html").read_text(encoding="utf-8")
+    # v1.0 is within 30 days of generated_at (2026-10-09), v0.9-beta is not.
+    assert "v1.0" in news
+    assert "v0.9-beta" not in news
+    assert "1 Oct 2026" in news
+    # Each release is a clickable <details> with release notes inside.
+    assert "<details" in news
+    assert '<div class="release-notes prose"><p>First release</p></div>' in news
 
 
 def test_country_only_bubble_is_not_a_top_place(tmp_path):

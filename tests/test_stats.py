@@ -89,6 +89,22 @@ def test_fetch(tmp_path, monkeypatch):
 
     monkeypatch.setattr(github, "list_repos", lambda *a: repos)
     monkeypatch.setattr(github, "list_stargazers", list_stargazers)
+    monkeypatch.setattr(
+        github,
+        "list_releases",
+        lambda org: [
+            {
+                "repo": "tool",
+                "name": "v1.0",
+                "tagName": "v1.0",
+                "publishedAt": "2026-01-15T10:00:00Z",
+                "url": "https://github.com/me/tool/releases/tag/v1.0",
+                "descriptionHTML": "<p>First release</p>",
+                "isPrerelease": False,
+            },
+        ],
+    )
+    monkeypatch.setattr(github, "fetch_org_readme_html", lambda org: "<p>We are me org.</p>")
     monkeypatch.setattr(geocode, "nominatim", nominatim)
 
     data = tmp_path / "data"
@@ -112,6 +128,9 @@ def test_fetch(tmp_path, monkeypatch):
     secret = json.loads((data / "stats" / "secret.json").read_text())
     assert secret["error"] and secret["stale_since"] == old["generated_at"]
     assert json.loads((data / "geocode-cache.json").read_text()) == {"lyon": LYON, "paris": PARIS}
+    releases = json.loads((data / "releases.json").read_text())
+    assert len(releases) == 1 and releases[0]["name"] == "v1.0"
+    assert "We are me org" in (data / "about.html").read_text()
 
     # Second run: everything is cached, nothing is geocoded again.
     lookups.clear()
@@ -135,6 +154,8 @@ def test_fetch_fails_when_token_cannot_read_any_repo(tmp_path, monkeypatch):
 
     monkeypatch.setattr(github, "list_repos", lambda *a: repos)
     monkeypatch.setattr(github, "list_stargazers", refuse)
+    monkeypatch.setattr(github, "list_releases", lambda org: [])
+    monkeypatch.setattr(github, "fetch_org_readme_html", lambda org: None)
     with pytest.raises(RuntimeError, match="Resource not accessible"):
         stats.fetch("me", tmp_path / "data")
     assert not (tmp_path / "data" / "summary.json").exists()

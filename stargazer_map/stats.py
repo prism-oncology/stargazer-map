@@ -89,7 +89,7 @@ def history(starred_at: list[str], now: str) -> list[list]:
     return rows
 
 
-def write_json(path: Path, obj: dict) -> None:
+def write_json(path: Path, obj) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
@@ -114,6 +114,13 @@ def fetch(
     cache_path = data_dir / "geocode-cache.json"
     user_agent = f"stargazer-map/1.0 (https://github.com/{repository or org})"
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+
+    releases = github.list_releases(org)
+    write_json(data_dir / "releases.json", releases)
+
+    about_html = github.fetch_org_readme_html(org)
+    if about_html:
+        (data_dir / "about.html").write_text(about_html, encoding="utf-8")
 
     repos = github.list_repos(org, include_forks, include_archived)
     print(f"{len(repos)} repos in {org}")

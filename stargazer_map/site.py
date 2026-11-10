@@ -13,6 +13,7 @@ toggle) and a left sidebar listing the maps and the docs, a drawer on phones.
 
 from __future__ import annotations
 
+import datetime as dt
 import html
 import json
 import math
@@ -64,6 +65,21 @@ def esc(s) -> str:
     return html.escape(str(s if s is not None else ""))
 
 
+def clean_github_readme(raw: str) -> str:
+    """Strip GitHub API wrapper markup from rendered README HTML."""
+    m = re.search(r"<article[^>]*>(.*)</article>", raw, re.DOTALL)
+    if m:
+        raw = m.group(1)
+    raw = re.sub(
+        r'<div class="markdown-heading"[^>]*>\s*(<h[1-6][^>]*>.*?</h[1-6]>)\s*'
+        r"<a[^>]*class=\"anchor\"[^>]*>.*?</a>\s*</div>",
+        r"\1",
+        raw,
+        flags=re.DOTALL,
+    )
+    return raw.strip()
+
+
 def fmt(n) -> str:
     return f"{n:,}" if isinstance(n, int) else "–"
 
@@ -81,8 +97,7 @@ def sidebar(org: str, repos: list[dict], current: str, root: str, sections=()) -
             sub += "</ul>"
         return f'<li><a href="{root}{esc(href)}"{cls}>{label}{extra}</a>{sub}</li>'
 
-    maps = link("index.html", "All repositories")
-    maps += "".join(
+    repos_list = "".join(
         link(
             f"{r['repo']}.html",
             esc(r["repo"]),
@@ -93,7 +108,7 @@ def sidebar(org: str, repos: list[dict], current: str, root: str, sections=()) -
     docs = "".join(link(f"docs/{slug}.html", esc(title)) for slug, title in DOCS)
     return (
         '<nav class="sidebar" aria-label="Site">'
-        f'<p class="nav-title">Maps</p><ul>{maps}</ul>'
+        f'<p class="nav-title">Repositories</p><ul>{repos_list}</ul>'
         f'<p class="nav-title">Documentation</p><ul>{docs}</ul></nav>'
     )
 
@@ -117,6 +132,8 @@ def page(
     ("" or "../"), prefixed to every site-relative link."""
     crumb = f'<div class="crumb">{crumb}</div>' if crumb else ""
     sub = f'<p class="sub">{sub}</p>' if sub else ""
+    repo_url = f"https://github.com/{esc(repository)}"
+    source_link = f'<a class="source" href="{repo_url}" title="{esc(repository)}">{GITHUB_ICON}</a>'
     map_block = ""
     if map_data is not None:
         data = json.dumps(map_data, ensure_ascii=False).replace("</", "<\\/")
@@ -137,7 +154,12 @@ def page(
 <header class="topbar">
 <label for="nav-toggle" class="icon-btn menu-btn" aria-label="Menu" title="Menu">{MENU_ICON}</label>
 {logo}<a class="site-name" href="{root}index.html">{esc(site_name)}</a>
-<a class="source" href="https://github.com/{esc(repository)}">{GITHUB_ICON}<span>{esc(repository)}</span></a>
+<nav class="topnav">
+<a href="{root}index.html">Home</a>
+<a href="{root}about.html">About</a>
+<a href="{root}news.html">News</a>
+</nav>
+{source_link}
 <button id="theme-toggle" class="icon-btn theme-toggle" type="button"></button>
 </header>
 <div class="layout">
@@ -288,6 +310,46 @@ def detail_body(stats: dict, star_count=None) -> str:
     return warn + kpis(stats, star_count) + map_and_rankings(stats) + chart
 
 
+RELEASE_MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
+
+
+def recent_releases(releases: list[dict], generated_at: str, days: int = 30) -> list[dict]:
+    """Filter releases published within `days` of `generated_at`."""
+    ref = dt.datetime.fromisoformat(generated_at)
+    cutoff = ref - dt.timedelta(days=days)
+    return [
+        r
+        for r in releases
+        if r.get("publishedAt") and dt.datetime.fromisoformat(r["publishedAt"]) >= cutoff
+    ]
+
+
+def news_body(releases: list[dict]) -> str:
+    if not releases:
+        return '<p class="sub">No releases in the last 30 days.</p>'
+    items = []
+    for r in releases:
+        tag = f'<span class="badge">{esc(r["tagName"])}</span>' if r.get("tagName") else ""
+        pre = '<span class="badge">pre-release</span>' if r.get("isPrerelease") else ""
+        pub = r["publishedAt"]
+        y, m, d = int(pub[:4]), int(pub[5:7]), int(pub[8:10])
+        date_str = f"{d} {RELEASE_MONTHS[m - 1]} {y}"
+        name = r.get("name") or r.get("tagName") or "Release"
+        body_html = r.get("descriptionHTML") or ""
+        notes = f'<div class="release-notes prose">{body_html}</div>' if body_html else ""
+        items.append(
+            f'<details class="release">'
+            f"<summary>"
+            f'<div class="release-meta">'
+            f'<a href="{esc(r["repo"])}.html">{esc(r["repo"])}</a>'
+            f" · {date_str} {pre}</div>"
+            f'<h3><a href="{esc(r["url"])}">{esc(name)}</a> {tag}</h3>'
+            f"</summary>"
+            f"{notes}</details>"
+        )
+    return "".join(items)
+
+
 def map_data(stats: dict, layers: list[str]) -> dict:
     """What map.js draws: bubbles, country counts, and the layers shown by default."""
     return {
@@ -415,6 +477,39 @@ def build(
         map_data=map_data(overall, layers),
     )
 
+    # About page
+    about_path = data_dir / "about.html"
+    if about_path.exists():
+        about_content = clean_github_readme(about_path.read_text(encoding="utf-8"))
+    else:
+        about_content = (
+            f'<p>Visit <a href="https://github.com/{esc(org)}">{esc(org)} on GitHub</a>'
+            " to learn more about this organisation.</p>"
+        )
+    write(
+        "about.html",
+        f"About · {site_name}",
+        f"About {esc(org)}",
+        "",
+        f'<article class="prose">{about_content}</article>',
+    )
+
+    # News page
+    releases_path = data_dir / "releases.json"
+    if releases_path.exists():
+        all_releases = json.loads(releases_path.read_text(encoding="utf-8"))
+        shutil.copy(releases_path, site_dir / "data" / "releases.json")
+    else:
+        all_releases = []
+    recent = recent_releases(all_releases, generated)
+    write(
+        "news.html",
+        f"News · {site_name}",
+        "News",
+        f"{len(recent)} release{'s' if len(recent) != 1 else ''} in the last 30 days",
+        news_body(recent),
+    )
+
     # Documentation
     values = {
         "org": esc(org),
@@ -439,5 +534,5 @@ def build(
         )
 
     (site_dir / ".nojekyll").write_text("")
-    print(f"Built {len(repos) + 1 + len(DOCS)} pages in {site_dir}")
+    print(f"Built {len(repos) + 3 + len(DOCS)} pages in {site_dir}")
     return site_dir

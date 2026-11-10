@@ -79,6 +79,64 @@ def parse_github_url(url: str) -> str | None:
     return match.group(1) if match else None
 
 
+RELEASES_QUERY = """
+query($org: String!, $endCursor: String) {
+  repositoryOwner(login: $org) {
+    repositories(first: 100, after: $endCursor, privacy: PUBLIC,
+                 ownerAffiliations: [OWNER]) {
+      nodes {
+        name
+        releases(first: 5, orderBy: {field: CREATED_AT, direction: DESC}) {
+          nodes { name tagName publishedAt url descriptionHTML isPrerelease isDraft }
+        }
+      }
+      pageInfo { hasNextPage endCursor }
+    }
+  }
+}
+"""
+
+
+def list_releases(org: str) -> list[dict]:
+    """Recent releases (non-draft) across all public repos of `org`."""
+    repos = gh_graphql_paginate(
+        RELEASES_QUERY,
+        ".data.repositoryOwner.repositories.nodes[]",
+        org=org,
+    )
+    releases = []
+    for r in repos:
+        for rel in r.get("releases", {}).get("nodes", []):
+            if rel.get("isDraft"):
+                continue
+            releases.append(
+                {
+                    "repo": r["name"],
+                    "name": rel.get("name") or rel.get("tagName") or "",
+                    "tagName": rel.get("tagName") or "",
+                    "publishedAt": rel.get("publishedAt") or "",
+                    "url": rel.get("url") or "",
+                    "descriptionHTML": rel.get("descriptionHTML") or "",
+                    "isPrerelease": rel.get("isPrerelease", False),
+                }
+            )
+    releases.sort(key=lambda r: r["publishedAt"], reverse=True)
+    return releases
+
+
+def fetch_org_readme_html(org: str) -> str | None:
+    """Fetch the organisation's profile README rendered as HTML, or None."""
+    cmd = [
+        "gh",
+        "api",
+        f"/repos/{org}/.github/contents/profile/README.md",
+        "--header",
+        "Accept: application/vnd.github.html",
+    ]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    return proc.stdout if proc.returncode == 0 else None
+
+
 def current_repository() -> str | None:
     """owner/name of the checkout we run in: set by GitHub Actions, else the git remote."""
     if os.environ.get("GITHUB_REPOSITORY"):

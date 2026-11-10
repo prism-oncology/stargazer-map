@@ -22,12 +22,15 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 gap:12px;padding:0 16px;background:var(--primary);color:var(--on-primary);
 box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .site-name{color:inherit;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;
-text-overflow:ellipsis;margin-right:auto}
+text-overflow:ellipsis}
 .site-name:hover{text-decoration:none;opacity:.85}
-.source{display:flex;align-items:center;gap:8px;color:inherit;font-size:13px;opacity:.9;
-white-space:nowrap}
+.topnav{display:flex;gap:2px;margin-right:auto;margin-left:8px}
+.topnav a{color:inherit;padding:6px 14px;border-radius:6px;font-size:14px;font-weight:500;
+opacity:.85}
+.topnav a:hover{background:rgba(255,255,255,.14);text-decoration:none;opacity:1}
+.source{display:flex;align-items:center;color:inherit;opacity:.9;white-space:nowrap}
 .source:hover{opacity:1;text-decoration:none}
-.source svg{width:20px;height:20px;flex:none}
+.source svg{width:22px;height:22px;flex:none}
 .icon-btn{width:36px;height:36px;padding:0;flex:none;display:grid;place-items:center;
 background:none;color:inherit;border:0;border-radius:50%;cursor:pointer}
 .icon-btn:hover{background:rgba(255,255,255,.14)}
@@ -76,7 +79,7 @@ transition:transform .2s ease;padding-top:24px}
 .nav-toggle:checked~.layout .scrim{display:block;position:fixed;inset:0;z-index:1200;
 background:rgba(0,0,0,.4)}
 .content{padding:0 16px}
-.source span{display:none}
+.topnav{display:none}
 }
 @media(max-width:600px){h1{font-size:24px}.logo{max-width:96px}}
 
@@ -137,6 +140,21 @@ td{padding:5px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabula
 td.n{text-align:right;width:56px}
 td.bar{width:40%;padding-left:10px}
 td.bar i{display:block;height:8px;border-radius:4px;background:var(--accent)}
+/* ---- News / releases ------------------------------------------------------- */
+.release{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:14px 16px;margin-bottom:12px;cursor:pointer}
+.release:hover{border-color:var(--title)}
+.release summary{list-style:none;display:block}
+.release summary::-webkit-details-marker{display:none}
+.release summary::marker{display:none;content:""}
+.release h3{margin:4px 0 0;font-size:16px}
+.release h3 a{color:var(--title)}
+.release-meta{font-size:13px;color:var(--muted)}
+.release-meta a{color:var(--title)}
+.release-notes{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.release[open]{cursor:auto}
+.release[open] summary{cursor:pointer}
+
 footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0;
 border-top:1px solid var(--line)}
 .leaflet-popup-content{font:13px/1.4 inherit}
