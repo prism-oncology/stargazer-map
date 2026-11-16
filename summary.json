@@ -1,7 +1,7 @@
 {
  "org": "prism-oncology",
  "repository": "prism-oncology/stargazer-map",
- "generated_at": "2026-11-10T12:47:31+00:00",
+ "generated_at": "2026-11-16T12:44:29+00:00",
  "repos": [
   {
    "repo": "sopa",
@@ -10,10 +10,10 @@
    "language": "Python",
    "archived": false,
    "star_count": 299,
-   "stargazers": 299,
-   "located": 164,
+   "stargazers": 298,
+   "located": 163,
    "error": null,
-   "countries": 28
+   "countries": 27
   },
   {
    "repo": "novae",
@@ -21,9 +21,9 @@
    "description": "Graph-based foundation model for spatial transcriptomics data. Zero-shot spatial domain inference, batch-effect correction, and many other features.",
    "language": "Python",
    "archived": false,
-   "star_count": 164,
-   "stargazers": 164,
-   "located": 87,
+   "star_count": 165,
+   "stargazers": 165,
+   "located": 88,
    "error": null,
    "countries": 21
   },
@@ -64,9 +64,9 @@
    "countries": 5
   },
   {
-   "repo": "novae_benchmark",
-   "url": "https://github.com/prism-oncology/novae_benchmark",
-   "description": "Repository used for the Novae benchmark",
+   "repo": "ALHENA",
+   "url": "https://github.com/prism-oncology/ALHENA",
+   "description": "ALHENA, an H&E encoder distilled from transcriptomic foundation models for multi-scale slide analysis.",
    "language": "Python",
    "archived": false,
    "star_count": 3,
@@ -76,13 +76,13 @@
    "countries": 1
   },
   {
-   "repo": "ALHENA",
-   "url": "https://github.com/prism-oncology/ALHENA",
-   "description": "ALHENA, an H&E encoder distilled from transcriptomic foundation models for multi-scale slide analysis.",
+   "repo": "novae_benchmark",
+   "url": "https://github.com/prism-oncology/novae_benchmark",
+   "description": "Repository used for the Novae benchmark",
    "language": "Python",
    "archived": false,
-   "star_count": 2,
-   "stargazers": 2,
+   "star_count": 3,
+   "stargazers": 3,
    "located": 1,
    "error": null,
    "countries": 1
@@ -162,8 +162,8 @@
  ],
  "overall": {
   "stargazers": 479,
-  "with_location": 257,
-  "located": 253,
-  "countries": 33
+  "with_location": 256,
+  "located": 252,
+  "countries": 32
  }
 }

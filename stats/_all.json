@@ -2,10 +2,10 @@
  "repo": "_all",
  "url": "https://github.com/prism-oncology",
  "description": "Unique stargazers across all prism-oncology repositories",
- "generated_at": "2026-11-10T12:47:31+00:00",
+ "generated_at": "2026-11-16T12:44:29+00:00",
  "stargazers": 479,
- "with_location": 257,
- "located": 253,
+ "with_location": 256,
+ "located": 252,
  "places": [
   {
    "lat": 48.853,
@@ -349,14 +349,6 @@
    "label": "Sunnyvale, United States",
    "country": "US",
    "count": 1
-  },
-  {
-   "lat": 26.155,
-   "lon": 50.534,
-   "label": "Bahrain",
-   "country": "BH",
-   "count": 1,
-   "country_only": true
   },
   {
    "lat": 39.303,
@@ -1029,11 +1021,6 @@
   {
    "code": "IN",
    "name": "India",
-   "count": 1
-  },
-  {
-   "code": "BH",
-   "name": "Bahrain",
    "count": 1
   },
   {
